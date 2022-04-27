@@ -6,7 +6,7 @@
                     <div class="features_wrappe_single">
                          <div class="single_item single_item_first">
                             <div class="blog-img">
-                                <a href="#"><img src="images/features/features_1.jpg" alt="" class="img-fluid"></a>
+                                <a href="#"><img src="asset/frontend/asset/frontend/images/features/features_1.jpg" alt="" class="img-fluid"></a>
                             </div>
                             <div class="blog_title">
                                 <span>look At</span>  
@@ -16,7 +16,7 @@
                         </div>
                         <div class="single_item single_item_last">
                             <div class="blog-img">
-                                <a href="#" title=""><img src="images/features/features_3.jpg" alt="" class="img-fluid"></a>
+                                <a href="#" title=""><img src="asset/frontend/asset/frontend/images/features/features_3.jpg" alt="" class="img-fluid"></a>
                             </div>
                             <div class="blog_title">
                                 <span>Get Your</span>  
@@ -28,7 +28,7 @@
                     <div class="features_wrappe_single">
                         <div class="single_item single_item_center">
                             <div class="blog-img">
-                                <a href="#" title=""><img src="images/features/features_2.jpg" alt="" class="img-fluid"></a>
+                                <a href="#" title=""><img src="asset/frontend/images/features/features_2.jpg" alt="" class="img-fluid"></a>
                             </div>
                             <div class="blog_title">
                                 <span>Go To</span>  

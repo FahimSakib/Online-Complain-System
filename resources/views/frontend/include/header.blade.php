@@ -28,7 +28,7 @@
     <div class="edu_nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo2.png" alt="logo"></a>
+                <a class="navbar-brand" href="index-2.html"><img src="asset/frontend/images/logo2.png" alt="logo"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
                         <li class="nav-item"><a href="#" class="nav-link active">Home</a>
@@ -112,7 +112,7 @@
 
                     <div class="slider-overlay"></div>
                     <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                    <img src="images/banner/banner_4.jpg" alt="Sky" class="rev-slidebg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    <img src="asset/frontend/images/banner/banner_4.jpg" alt="Sky" class="rev-slidebg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption font-lora sfb tp-resizeme letter-space-5 h-p" 
                         data-x="['left','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -222,7 +222,7 @@
 
                 <li data-index="rs-1708" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1000"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <div class="slider-overlay"></div>
-                    <img src="images/banner/banner_2.jpg" alt="Sky" class="rev-slidebg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                    <img src="asset/frontend/images/banner/banner_2.jpg" alt="Sky" class="rev-slidebg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption font-lora sfb tp-resizeme letter-space-5 h-p" 
                         data-x="['left','center','center','center']" data-hoffset="['0','0','0','0']" 
