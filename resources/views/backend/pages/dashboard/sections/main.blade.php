@@ -11,16 +11,7 @@
                     </div>
                     <div class="breadcrumb-bar align-items-center">
                         <nav>
-                            <ol class="breadcrumb p-0 m-b-0">
-                                <li class="breadcrumb-item">
-                                    <a href="index.html"><i class="ti ti-home"></i></a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    Dashboard
-                                </li>
-                                <li class="breadcrumb-item active text-primary" aria-current="page">
-                                    Default</li>
-                            </ol>
+                            @include('backend.pages.dashboard.sections.breadcrumb')
                         </nav>
                     </div>
                     <div class="ml-auto d-flex align-items-center secondary-menu text-center">
