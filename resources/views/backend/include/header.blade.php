@@ -24,7 +24,7 @@
                             <i class="ti ti-align-right"></i>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link  " href="javascript:void(0)" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mega Menu
                             <i class="fa fa-angle-down"></i>
@@ -142,7 +142,7 @@
                             <a class="dropdown-item nav-link" href="javascript:void(0)">Something else
                                 here</a>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="nav-item full-screen d-none d-lg-block" id="btnFullscreen">
                         <a href="javascript:void(0)" class="nav-link expand">
                             <i class="icon-size-fullscreen"></i>
