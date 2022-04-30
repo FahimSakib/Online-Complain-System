@@ -6,11 +6,18 @@
                     <div class="info_wrapper">
                         <div class="contact_info">                   
         					<ul class="list-unstyled">
-                                <li><i class="flaticon-phone-receiver"></i>+000-2356-222</li>
-        						<li><i class="flaticon-mail-black-envelope-symbol"></i>contact@yourdomain.com</li>
+                                <li><i class="flaticon-phone-receiver"></i>+01811990871</li>
+        						<li><i class="flaticon-mail-black-envelope-symbol"></i>online.complain.system@gmail.com</li>
         					</ul>                    
                         </div>
-                        <div class="social_wrapper d-flex">
+                        <div class="login_info">
+                             <ul class="d-flex">
+                                <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>
+                            </ul>
+                           
+                        </div>
+                        {{-- <div class="social_wrapper d-flex">
                             <span>Follow Us : </span>
                             <ul class="social-items d-flex list-unstyled">
                                 <li><a href="#"><i class="fab fa-facebook-f fb_icon"></i></a></li>
@@ -18,7 +25,7 @@
                                 <li><a href="#"><i class="fab fa-linkedin-in link_icon"></i></a></li>
                                 <li><a href="#"><i class="fab fa-instagram in_icon"></i></a></li>
                             </ul>   
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -31,16 +38,17 @@
                 <a class="navbar-brand" href="index-2.html"><img src="asset/frontend/images/logo2.png" alt="logo"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
-                        <li class="nav-item"><a href="#" class="nav-link active">Home</a>
+                        {{-- <li class="nav-item"><a href="#" class="nav-link active">Home</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
                                 <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
                                 <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
                                 <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
                             </ul> 
-                        </li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>
+                        </li> --}}
+                        <li class="nav-item"><a href="about.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">Complain</a></li>
+                        {{-- <li class="nav-item"><a href="course.html" class="nav-link">Contact</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
                                 <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
@@ -81,7 +89,7 @@
                                 <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
                                 <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
                             </ul>                            
-                        </li>     
+                        </li>      --}}
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
