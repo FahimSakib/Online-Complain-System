@@ -28,3 +28,9 @@ use Illuminate\Support\Facades\Route;
 //     })->name('dashboard');
 // });
 Route::get('/','Frontend\HomeController@index')->name('home');
+
+// backend routes:
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+    Route::resource('/', 'Backend\DashboardController');
+    Route::resource('complains', 'Backend\ComplainController');
+});
