@@ -10,6 +10,7 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#login" role="tab">Login</a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Register</a></li>
+                           
                         </ul>
                     </div>
                     <div class="col-12 col-lg-12 col-md-12 col-lg-12">

@@ -27,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 //         return view('dashboard');
 //     })->name('dashboard');
 // });
+//FRONTEND ROUTES:
 Route::get('/','Frontend\HomeController@index')->name('home');
+Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
 
 // backend routes:
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){

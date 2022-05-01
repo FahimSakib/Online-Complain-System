@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-class HomeController extends Controller
+
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Home'
+            'title' => 'Dashboard'
         ];
-        return view('frontend.pages.home.home',$data);
-
+        return view('frontend.pages.dashboard.dashboard',$data);
     }
 
     /**
