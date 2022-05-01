@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    {{-- <main class="main"> --}}
+ 
     @include('frontend.pages.home.sections.learning')
     @include('frontend.pages.home.sections.course')
     @include('frontend.pages.home.sections.about-top')
