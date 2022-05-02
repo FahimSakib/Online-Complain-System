@@ -46,8 +46,8 @@
                                 <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
                             </ul> 
                         </li> --}}
-                        <li class="nav-item"><a href="about.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">Complain</a></li>
+                        <li class="nav-item"><a href="{{route('home')}}" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="{{route('complain')}}" class="nav-link">Complain</a></li>
                         {{-- <li class="nav-item"><a href="course.html" class="nav-link">Contact</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
@@ -90,6 +90,7 @@
                                 <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
                             </ul>                            
                         </li>      --}}
+                        <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link">Profile</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                 </div>
