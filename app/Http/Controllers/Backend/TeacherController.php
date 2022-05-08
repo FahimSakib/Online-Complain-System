@@ -20,7 +20,7 @@ class TeacherController extends Controller
             'title' => 'Teacher'
         ];
 
-        $teachers = User::where('role_id',2)->get();
+        $teachers = User::with('department')->where('role_id',2)->get();
 
         return view('backend.pages.teacher.index',$data,compact('teachers'));
     }
@@ -83,7 +83,13 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'title' => 'Teacher-show'
+        ];
+
+        $teacher = User::with('department')->find($id);
+
+        return view('backend.pages.teacher.show', $data , compact('teacher'));
     }
 
     /**
