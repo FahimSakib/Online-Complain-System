@@ -16,10 +16,10 @@
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i
-                        class="nav-icon ti ti-layers"></i><span class="nav-title">3rd</span></a>
+                        class="nav-icon ti ti-layers"></i><span class="nav-title">Department</span></a>
                 <ul aria-expanded="false">
-                    <li> <a href='calendar-full.html'>Index</a> </li>
-                    <li> <a href='calendar-list.html'>Create</a> </li>
+                    <li> <a href="{{ route('admin.department.index') }}">Index</a> </li>
+                    <li> <a href="{{ route('admin.department.create') }}">Create</a> </li>
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i
