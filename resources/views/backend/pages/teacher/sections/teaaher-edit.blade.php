@@ -8,7 +8,7 @@
                         <!-- begin page title -->
                         <div class="d-block d-sm-flex flex-nowrap align-items-center">
                             <div class="page-title mb-2 mb-sm-0">
-                                <h1>Department</h1>
+                                <h1>teacher</h1>
                             </div>
                             <div class="ml-auto d-flex align-items-center">
                                 <nav>
@@ -17,9 +17,9 @@
                                             <a href="{{ route('admin.index') }}"><i class="ti ti-home"></i></a>
                                         </li>
                                         <li class="breadcrumb-item">
-                                            Department
+                                            teacher
                                         </li>
-                                        <li class="breadcrumb-item active text-primary" aria-current="page">Create</li>
+                                        <li class="breadcrumb-item active text-primary" aria-current="page">Edit</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -31,20 +31,21 @@
                     <div class="card card-statistics">
                         <div class="card-header">
                             <div class="card-heading">
-                                <h4 class="card-title">Create Department</h4>
+                                <h4 class="card-title">Edit teacher</h4>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form  action="{{ route('admin.department.store') }}" method="POST" class="form-horizontal">
-                            @csrf
+                                 <form action="{{ route('admin.teacher.update',$teacher->id) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
                                 <div class="form-group">
                                     <label class="control-label" for="title">Title</label>
                                     <div class="mb-2">
-                                        <input type="text" class="form-control" id="title" name="title"
-                                            placeholder="Title" />
+                                        <input type="text" class="form-control" id="title" name="title" value="{{$teacher->title}}"
+                                            placeholder="Title"  />
                                     </div>
                                     <div class="form-group mb-2 selects-contant  select-wrapper">
-                                        <select class="js-basic-single form-control" name="status">
+                                        <select class="js-basic-single form-control" name="status" value="{{$teacher->title}}">
 
                                             <option value="1">Active</option>
                                             <option value="0">Deactive</option>

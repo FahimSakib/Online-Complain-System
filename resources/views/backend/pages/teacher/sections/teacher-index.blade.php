@@ -16,9 +16,9 @@
                                     <a href="{{ route('admin.index') }}"><i class="ti ti-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    Department
+                                    Teacher
                                 </li>
-                                <li class="breadcrumb-item active text-primary" aria-current="page">List of Departments
+                                <li class="breadcrumb-item active text-primary" aria-current="page">List of Teachers
                                 </li>
                             </ol>
                         </nav>
@@ -49,7 +49,7 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($department as $item)
+                                        @foreach ($teacher as $item)
                                         <td class="text-center">
                                             {{$i++}}
                                         </td>
@@ -63,13 +63,13 @@
                                             </a>
                                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item has-icon"
-                                                    href="{{ route('admin.department.show',$item->id) }}"><i
+                                                    href="{{ route('admin.teacher.show',$item->id) }}"><i
                                                         class="fa fa-eye"></i> View</a>
                                                 <a class="dropdown-item has-icon"
-                                                    href="{{ route('admin.department.edit',$item->id) }}"><i
+                                                    href="{{ route('admin.teacher.edit',$item->id) }}"><i
                                                         class="fa fa-edit"></i> Edit</a>
                                                 <div class="del ml-4">
-                                                    <form action="{{ route('admin.department.destroy',$item->id) }}"
+                                                    <form action="{{ route('admin.teacher.destroy',$item->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')

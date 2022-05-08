@@ -8,7 +8,7 @@
                         <!-- begin page title -->
                         <div class="d-block d-sm-flex flex-nowrap align-items-center">
                             <div class="page-title mb-2 mb-sm-0">
-                                <h1>Department</h1>
+                                <h1>Teacher</h1>
                             </div>
                             <div class="ml-auto d-flex align-items-center">
                                 <nav>
@@ -17,7 +17,7 @@
                                             <a href="{{ route('admin.index') }}"><i class="ti ti-home"></i></a>
                                         </li>
                                         <li class="breadcrumb-item">
-                                            Department
+                                            Teacher
                                         </li>
                                         <li class="breadcrumb-item active text-primary" aria-current="page">Create</li>
                                     </ol>
@@ -31,11 +31,11 @@
                     <div class="card card-statistics">
                         <div class="card-header">
                             <div class="card-heading">
-                                <h4 class="card-title">Create Department</h4>
+                                <h4 class="card-title">Create Teacher</h4>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form  action="{{ route('admin.department.store') }}" method="POST" class="form-horizontal">
+                            <form  action="{{ route('admin.teacher.store') }}" method="POST" class="form-horizontal">
                             @csrf
                                 <div class="form-group">
                                     <label class="control-label" for="title">Title</label>

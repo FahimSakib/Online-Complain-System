@@ -23,10 +23,10 @@
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i
-                        class="nav-icon ti ti-layers"></i><span class="nav-title">4th</span></a>
+                        class="nav-icon ti ti-layers"></i><span class="nav-title">Teachers</span></a>
                 <ul aria-expanded="false">
-                    <li> <a href='calendar-full.html'>Index</a> </li>
-                    <li> <a href='calendar-list.html'>Create</a> </li>
+                    <li> <a href="{{ route('admin.teacher.index') }}">Index</a> </li>
+                    <li> <a href="{{ route('admin.teacher.create') }}">Create</a> </li>
                 </ul>
             </li>
         </ul>
