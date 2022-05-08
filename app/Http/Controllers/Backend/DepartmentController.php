@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use Illuminate\Http\Request;
+
+
 
 class DepartmentController extends Controller
 {
@@ -43,7 +47,20 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title'      => 'required',
+            'status'      => 'required'
+              
+        ]);
+       
+        $department = new Department($request->all());
+        // dd('department');
+        if($department->save())
+        {
+            return redirect()->route('admin.department.index');
+            // return view('backend.pages.department.index',$data);
+
+        }
     }
 
     /**
