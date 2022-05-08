@@ -20,9 +20,9 @@ class TeacherController extends Controller
             'title' => 'Teacher'
         ];
 
-        $teacher = User::where('role_id',2)->get();
+        $teachers = User::where('role_id',2)->get();
 
-        return view('backend.pages.teacher.index',$data,compact('teacher'));
+        return view('backend.pages.teacher.index',$data,compact('teachers'));
     }
 
     /**

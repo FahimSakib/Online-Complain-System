@@ -40,7 +40,10 @@
                                         <th>SL</th>
                                         <th>Name</th>
                                         <th>ID</th>
-                                        <th>ID</th>
+                                        <th>Designation</th>
+                                        <th>Department</th>
+                                        <th>Mobile</th>
+                                        <th>Status</th>
                                         <th>Action</th>
 
                                     </tr>
@@ -50,12 +53,22 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($teacher as $item)
+                                        @foreach ($teachers as $teacher)
                                         <td class="text-center">
                                             {{$i++}}
                                         </td>
-                                        <td>{{$item->title}}</td>
-                                        <td>{{$item->status}}</td>
+                                        <td>{{$teacher->name}}</td>
+                                        <td>{{$teacher->id_no}}</td>
+                                        <td>{{$teacher->designation}}</td>
+                                        <td>{{$teacher->department->title}}</td>
+                                        <td>{{$teacher->mobile}}</td>
+                                        <td>
+                                            @if ($teacher->status == 1)
+                                                Active
+                                                @else
+                                                Inactive
+                                            @endif
+                                        </td>
                                         <td class="nav-item dropdown">
                                             <a href="javascript:void(0)" class="nav-link" id="navbarDropdown1"
                                                 role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -64,13 +77,13 @@
                                             </a>
                                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item has-icon"
-                                                    href="{{ route('admin.teacher.show',$item->id) }}"><i
+                                                    href="{{ route('admin.teacher.show',$teacher->id) }}"><i
                                                         class="fa fa-eye"></i> View</a>
                                                 <a class="dropdown-item has-icon"
-                                                    href="{{ route('admin.teacher.edit',$item->id) }}"><i
+                                                    href="{{ route('admin.teacher.edit',$teacher->id) }}"><i
                                                         class="fa fa-edit"></i> Edit</a>
                                                 <div class="del ml-4">
-                                                    <form action="{{ route('admin.teacher.destroy',$item->id) }}"
+                                                    <form action="{{ route('admin.teacher.destroy',$teacher->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
