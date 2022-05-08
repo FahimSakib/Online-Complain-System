@@ -149,7 +149,11 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(User::find($id)->delete()){
+            return redirect()->route('admin.teacher.index')->with('danger','Item deleted successfully');
+        }else{
+            return redirect()->route('admin.teacher.index')->with('error','Item can not be deleted');
+        }
     }
 
     private function fileUpload($file, $name){

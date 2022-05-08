@@ -113,8 +113,8 @@
                                     <div class="form-group mb-2 selects-contant  select-wrapper col-md-6">
                                         <label class="control-label" for="title">Status</label>
                                         <select class="js-basic-single form-control @error('status') is-invalid @enderror" name="status">
-                                            <option value="1" {{ old('department_id') == 1 ? 'selected' : ''}}>Active</option>
-                                            <option value="0" {{ old('department_id') == 0 ? 'selected' : ''}}>Deactive</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
                                         </select>
                                         @error('status')
                                         <div class="alert alert-danger">{{ $message }}</div>
