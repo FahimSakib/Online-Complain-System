@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class TeacherController extends Controller
         ];
 
         $teacher = User::where('role_id',2)->get();
-        
+
         return view('backend.pages.teacher.index',$data,compact('teacher'));
     }
 
@@ -31,7 +32,13 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => 'Teacher'
+        ];
+
+        $departments = Department::get();
+
+        return view('backend.pages.teacher.create',$data, compact('departments'));
     }
 
     /**
@@ -42,7 +49,30 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'id_no'         => 'required',
+            'designation'   => 'required',
+            'department_id' => 'required',
+            'mobile'        => 'required|min:11',
+            'status'        => 'required',
+            'password'      => 'required|min:8',
+            'image'         => 'required|image|mimes:png,jpeg,jpg'
+        ]);
+
+        $file =  $request->file('image');
+        $uploadName = $this->fileUpload($file,'image');
+
+        $teacher = new User($request->all());
+
+        $teacher->image = $uploadName;
+        
+        if($teacher->save())
+        {
+            return redirect()->route('admin.teacher.index')->with('success','Item added successfully');
+        }else{
+            return redirect()->route('admin.teacher.index')->with('error','Item can not be added');
+        }
     }
 
     /**
@@ -88,5 +118,17 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function fileUpload($file, $name){
+        $prefix='User_'.time().'_';
+        $picture='';
+        if(!empty($file)){
+            $name=$name.'_img.';
+            $fileext = $file->getClientOriginalExtension();
+            $picture = $prefix.$name.$fileext;
+            $path = $file->storeAs('public/User_Image',$picture);
+        }
+        return $picture;
     }
 }

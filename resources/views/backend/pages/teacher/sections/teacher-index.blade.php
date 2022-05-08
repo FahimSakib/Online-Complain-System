@@ -37,9 +37,10 @@
                             <table id="datatable" class="display compact table table-striped table-bordered">
                                 <thead>
                                     <tr>
+                                        <th>SL</th>
+                                        <th>Name</th>
                                         <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Status</th>
+                                        <th>ID</th>
                                         <th>Action</th>
 
                                     </tr>

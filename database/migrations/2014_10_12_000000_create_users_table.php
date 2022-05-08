@@ -16,12 +16,20 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('id_no')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('designation')->nullable();
+            $table->unsignedBigInteger('department_id')->nullable();
+            $table->foreign('department_id')->references('id')->on('departments');
+            $table->string('image')->nullable();
+            $table->string('mobile')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->enum('status',['0','1'])->default('1')->comment="0=Inactive,1=Active"; 
+            $table->enum('role_id',['1','2','3'])->default('3')->comment="1=Admin,2=Teacher,3=Student";
             $table->timestamps();
         });
     }

@@ -35,25 +35,97 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form  action="{{ route('admin.teacher.store') }}" method="POST" class="form-horizontal">
-                            @csrf
-                                <div class="form-group">
-                                    <label class="control-label" for="title">Title</label>
-                                    <div class="mb-2">
-                                        <input type="text" class="form-control" id="title" name="title"
-                                            placeholder="Title" />
+                            <form action="{{ route('admin.teacher.store') }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" for="name">Name</label>
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                                                placeholder="Name" value="{{ old('name') }}" />
+                                        </div>
+                                        @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                    <div class="form-group mb-2 selects-contant  select-wrapper">
-                                        <select class="js-basic-single form-control" name="status">
-
-                                            <option value="1">Active</option>
-                                            <option value="0">Deactive</option>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" for="id_no">Teacher ID</label>
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control @error('id_no') is-invalid @enderror" id="id_no" name="id_no"
+                                                placeholder="Teacher ID" value="{{ old('id_no') }}" />
+                                        </div>
+                                        @error('id_no')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" for="designation">Designation</label>
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control @error('designation') is-invalid @enderror" id="designation" name="designation"
+                                                placeholder="Designation" value="{{ old('designation') }}" />
+                                        </div>
+                                        @error('designation')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" for="password">Password</label>
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password"
+                                                placeholder="Password" />
+                                        </div>
+                                        @error('password')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-2 selects-contant  select-wrapper col-md-6">
+                                        <label class="control-label" for="department">Department</label>
+                                        <select class="js-basic-single form-control @error('department_id') is-invalid @enderror" name="department_id">
+                                            <option value="">Select Please</option>
+                                            @foreach ($departments as $department)
+                                            <option value="{{ $department->id }}" {{ old('department_id') == $department->id ? 'selected' : ''}}>{{ $department->title }}</option>
+                                            @endforeach
                                         </select>
+                                        @error('department_id')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                    <div class="form-group">
-                                                                           <button type="submit" class="btn btn-primary">Submit</button>
-
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" for="image">Image</label>
+                                        <div class="mb-2">
+                                            <input type="file" name="image" id="image" class="@error('image') is-invalid @enderror">
+                                        </div>
+                                        @error('image')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label" for="mobile">Mobile NO</label>
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control @error('mobile') is-invalid @enderror" id="mobile" name="mobile"
+                                                placeholder="Mobile NO" value="{{ old('mobile') }}" />
+                                        </div>
+                                        @error('mobile')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group mb-2 selects-contant  select-wrapper col-md-6">
+                                        <label class="control-label" for="title">Status</label>
+                                        <select class="js-basic-single form-control @error('status') is-invalid @enderror" name="status">
+                                            <option value="1" {{ old('department_id') == 1 ? 'selected' : ''}}>Active</option>
+                                            <option value="0" {{ old('department_id') == 0 ? 'selected' : ''}}>Deactive</option>
+                                        </select>
+                                        @error('status')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <input type="hidden" name="role_id" value="2">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-11"></div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
