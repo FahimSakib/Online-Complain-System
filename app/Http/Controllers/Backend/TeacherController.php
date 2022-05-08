@@ -51,10 +51,10 @@ class TeacherController extends Controller
     {
         $request->validate([
             'name'          => 'required',
-            'id_no'         => 'required',
+            'id_no'         => 'required|unique:users,id_no',
             'designation'   => 'required',
             'department_id' => 'required',
-            'mobile'        => 'required|min:11',
+            'mobile'        => 'required|min:11|unique:users,mobile',
             'status'        => 'required',
             'password'      => 'required|min:8',
             'image'         => 'required|image|mimes:png,jpeg,jpg'
@@ -94,7 +94,15 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'title' => 'Teacher-Edit'
+        ];
+
+        $teacher = User::find($id);
+
+        $departments = Department::get();
+
+        return view('backend.pages.teacher.edit', $data , compact('teacher', 'departments'));
     }
 
     /**
@@ -106,7 +114,31 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'id_no'         => 'required|unique:users,id_no,'.$id,
+            'designation'   => 'required',
+            'department_id' => 'required',
+            'mobile'        => 'required|min:11|unique:users,mobile,'.$id,
+            'status'        => 'required',
+            'password'      => 'required|min:8',
+            'image'         => 'nullable|image|mimes:png,jpeg,jpg'
+        ]);
+
+        $teacher = User::find($id);
+
+        $image = $this->fileUpload($request->file('image'),'image');
+        if(empty($image))$image = $teacher->image;
+
+        $teacher->fill($request->all());
+
+        $teacher->image = $image;
+
+        if($teacher->save()){
+            return redirect()->route('admin.teacher.index')->with('success','Item Updated successfully');
+        }else{
+            return redirect()->route('admin.teacher.index')->with('error','Item can not be updated');
+        }
     }
 
     /**
