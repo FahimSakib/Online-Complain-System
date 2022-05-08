@@ -21,8 +21,8 @@ class DepartmentController extends Controller
         $data = [
             'title' => 'Departments'
         ];
-
-        return view('backend.pages.department.index',$data);
+        $department = Department::all();
+        return view('backend.pages.department.index',$data,compact('department'));
     }
 
     /**
@@ -54,11 +54,9 @@ class DepartmentController extends Controller
         ]);
        
         $department = new Department($request->all());
-        // dd('department');
         if($department->save())
         {
             return redirect()->route('admin.department.index');
-            // return view('backend.pages.department.index',$data);
 
         }
     }
@@ -80,9 +78,12 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Department $department)
     {
-        //
+        $data = [
+            'title' => 'Department-Edit'
+        ];
+        return view('backend.pages.department.edit', $data , compact('department'));
     }
 
     /**
@@ -92,9 +93,23 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Department $department)
     {
-        //
+        $request->validate([
+            'title'      => 'required',
+            'status'      => 'required'
+              
+        ]);
+
+       
+
+        $department->update($request->all());
+
+       
+
+       
+        return redirect()->route('admin.department.index')->with('success','Item Update successfully');
+
     }
 
     /**
@@ -103,8 +118,10 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Department $department)
     {
-        //
+        $department->delete();
+        return redirect()->route('admin.department.index')->with('danger','Item delete successfully');
+
     }
 }
