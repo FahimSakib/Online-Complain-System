@@ -36,4 +36,5 @@ Route::get('complain','Frontend\ComplainController@index')->name('complain');
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('/', 'Backend\DashboardController');
     Route::resource('complains', 'Backend\ComplainController');
+    Route::resource('department', 'Backend\DepartmentController');
 });
