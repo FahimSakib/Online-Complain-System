@@ -10,7 +10,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect1">Department</label>
                                     <select class="form-control" id="exampleFormControlSelect1"
-                                        onchange="teachers(this.value)" required>
+                                        onchange="teachers(this.value)" name="department_id" required>
                                         <option value="">Select Please</option>
                                         @foreach ($departments as $department)
                                         <option value="{{ $department->id }}">{{ $department->title }}</option>
@@ -19,55 +19,77 @@
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect2">Teachers name</label>
-                                    <select class="form-control" id="exampleFormControlSelect2" required>
+                                    <select class="form-control" id="exampleFormControlSelect2" name="teacher_id"
+                                        required>
                                         <option value="">Please Select a Department First</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect3">Late</label>
-                                    <select class="form-control" id="exampleFormControlSelect3">
-                                        <option>Teachers Name</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control" id="exampleFormControlSelect3" name="problem1">
+                                        <option value="">Select Please</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect4">Behaviour</label>
-                                    <select class="form-control" id="exampleFormControlSelect4">
-                                        <option>Teachers Name</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control" id="exampleFormControlSelect4" name="problem2">
+                                        <option value="">Select Please</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect5">Teaching method</label>
-                                    <select class="form-control" id="exampleFormControlSelect5">
-                                        <option>Teachers Name</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control" id="exampleFormControlSelect5" name="problem3">
+                                        <option value="">Select Please</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect6">Marking</label>
-                                    <select class="form-control" id="exampleFormControlSelect6">
-                                        <option>Teachers Name</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control" id="exampleFormControlSelect6" name="problem4">
+                                        <option value="">Select Please</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 form-group">
+                                    <label for="exampleFormControlSelect7">Problem 5</label>
+                                    <select class="form-control" id="exampleFormControlSelect7" name="problem5">
+                                        <option value="">Select Please</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
 
                                 <div class="col-12 col-sm-12 col-md-12 form-group">
-                                    <textarea class="form-control" id="comment"
+                                    <textarea class="form-control" id="comment" name="comment"
                                         placeholder="Your Comment Wite Here ..."></textarea>
                                 </div>
+                                <input type="hidden" name="student_id" value="{{ Auth::user->id }}">
                                 <div class="col-12 col-sm-12 col-md-12 submit-btn">
                                     <button type="submit" class="text-center">Send Complain</button>
                                 </div>
