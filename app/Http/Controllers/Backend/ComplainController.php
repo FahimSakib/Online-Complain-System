@@ -62,7 +62,13 @@ class ComplainController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'title' => 'Complain-show'
+        ];
+
+        $complain = Complain::with(['department', 'user'])->find($id);
+
+        return view('backend.pages.complains.show', $data , compact('complain'));
     }
 
     /**

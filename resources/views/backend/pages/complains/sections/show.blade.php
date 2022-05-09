@@ -7,7 +7,7 @@
                 <!-- begin page title -->
                 <div class="d-block d-sm-flex flex-nowrap align-items-center">
                     <div class="page-title mb-2 mb-sm-0">
-                        <h1>Teachers</h1>
+                        <h1>Complains</h1>
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
@@ -16,9 +16,9 @@
                                     <a href="{{ route('admin.index') }}"><i class="ti ti-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    Teacher
+                                    Complain
                                 </li>
-                                <li class="breadcrumb-item active text-primary" aria-current="page">Teacher Single Show
+                                <li class="breadcrumb-item active text-primary" aria-current="page">Complain Single Show
                                 </li>
                             </ol>
                         </nav>
@@ -35,61 +35,92 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered">
-                               <tbody>                 
-                                   <tr>
-                                       <th>Fields</th>
-                                       <th>Details</th>
-                                   </tr>
-                                   <tr>
-                                       <th>ID</th>
-                                       <td>{{ $teacher->id }}</td>
-                                   </tr>
-                                   <tr>
-                                       <th>Name</th>
-                                       <td>{{ $teacher->name }}</td>
-                                   </tr>
-                                   <tr>
-                                       <th>Designation</th>
-                                       <td>{{ $teacher->designation }}</td>
-                                   </tr>
-                                   <tr>
-                                       <th>Department</th>
-                                       <td>{{ $teacher->department->title }}</td>
-                                   </tr>
-                                   <tr>
-                                       <th>Mobile</th>
-                                       <td>{{ $teacher->mobile }}</td>
-                                   </tr>
-                                   <tr>
-                                    <th>Image</th>
-                                    <td>
-                                        <img src="{{ asset('storage/User_image/'.$teacher->image) }}"
-                                            alt="{{ $teacher->image }}" style="width:100px">
-                                    </td>
-                                </tr>
-                                   <tr>
-                                       <th>Status</th>
-                                      
-                                         @if($teacher->status=='1')                               
-                                             <td>Active</td>
-                                         @else                               
-                                             <td>Deactive</td>
+                                <tbody>
+                                    <tr>
+                                        <th class="col-md-2">Fields</th>
+                                        <th>Details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>ID</th>
+                                        <td>{{ $complain->id }}</td>
+                                    </tr>
+                                    @php
+                                    $teacher =
+                                    App\Models\User::where('id',$complain->teacher_id)->pluck('name')->first();
+                                    $student =
+                                    App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
+                                    $problem1_avg =
+                                    App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem1');
+                                    $problem2_avg =
+                                    App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem2');
+                                    $problem3_avg =
+                                    App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem3');
+                                    $problem4_avg =
+                                    App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem4');
+                                    $problem5_avg =
+                                    App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem5');
+                                    @endphp
+                                    <tr>
+                                        <th>Teacher Name</th>
+                                        <td>{{ $teacher }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Department</th>
+                                        <td>{{ $complain->department->title }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>student Name</th>
+                                        <td>{{ $student }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Problem 01</th>
+                                        <td class="{{ $problem1_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem1 }} <br> average: {{ number_format((float)$problem1_avg, 2, '.', '') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Problem 02</th>
+                                        <td class="{{ $problem2_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem2 }} <br> average: {{ number_format((float)$problem2_avg, 2, '.', '') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Problem 03</th>
+                                        <td class="{{ $problem3_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem3 }} <br> average: {{ number_format((float)$problem3_avg, 2, '.', '') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Problem 04</th>
+                                        <td class="{{ $problem4_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem4 }} <br> average: {{ number_format((float)$problem4_avg, 2, '.', '') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Problem 05</th>
+                                        <td class="{{ $problem5_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem5 }} <br> average: {{ number_format((float)$problem5_avg, 2, '.', '') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        @if($complain->status == '1')
+                                        <td>
+                                            <span class="badge badge-info">Pending</span>
+                                        </td>
+                                        @elseif ($complain->status == '2')
+                                        <td>
+                                            <span class="badge badge-primary">Accepted</span>
+                                        </td>
+                                        @else
+                                        <td>
+                                            <span class="badge badge-success">Declined</span>
+                                        </td>
+                                        @endif
+                                    </tr>
 
-                                         @endif
-                                   </tr>
-                                  
-                                   <tr>
-                                       <th>Created at</th>
-                                                                                   <td>{!! date('d - M - Y - h : i : s A', strtotime($teacher->created_at)) !!}
+                                    <tr>
+                                        <th>Created at</th>
+                                        <td>{!! date('d - M - Y - h : i : s A', strtotime($complain->created_at)) !!}
 
-                                   </tr>
-                                   <tr>
-                                       <th>Updated at</th>
-                                       <td>{!! date('d - M - Y - h : i : s A', strtotime($teacher->updated_at)) !!}
-                                   </tr>
-                               </tbody>
-                           </table>
-                         </div>
+                                    </tr>
+                                    <tr>
+                                        <th>Updated at</th>
+                                        <td>{!! date('d - M - Y - h : i : s A', strtotime($complain->updated_at)) !!}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
