@@ -92,7 +92,12 @@ $complains = [];
                     @else
                     <span>N/A</span>
                     @endif
-
+                    <div class="ml-4 mt-2 pb-2">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <a type="button"><button class="btn btn-danger" type="submit">Logout</button></a>
+                    </form>
+                </div>
                 </div>
             </div><!-- Ends: .teacher-detail-left -->
             <div class="col-sm-8 teacher-detail-right">
