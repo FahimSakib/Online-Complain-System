@@ -19,7 +19,9 @@ class ComplainController extends Controller
             'title' => 'Complains'
         ];
 
-        return view('backend.pages.complains.index',$data);
+        $complains = Complain::with(['user','department'])->where('status',2)->get();
+
+        return view('backend.pages.complains.index',$data, compact('complains'));
     }
 
     public function pending()
