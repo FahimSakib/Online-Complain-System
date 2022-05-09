@@ -64,9 +64,9 @@
                                         <td>{{$teacher->mobile}}</td>
                                         <td>
                                             @if ($teacher->status == 1)
-                                                Active
-                                                @else
-                                                Inactive
+                                            Active
+                                            @else
+                                            Inactive
                                             @endif
                                         </td>
                                         <td class="nav-item dropdown">
@@ -93,22 +93,13 @@
                                                     </form>
                                                 </div>
                                             </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
-                        </td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                        {{-- <tfoot>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
-                                                    </tr>
-                                                </tfoot> --}}
-                        </table>
+
                     </div>
                 </div>
             </div>
@@ -143,7 +134,7 @@
                         timer: 3000,
                     });
                 } else {
-                    swal('Your data is safe!',{
+                    swal('Your data is safe!', {
                         timer: 3000,
                     });
                 }

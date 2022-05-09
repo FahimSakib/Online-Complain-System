@@ -42,4 +42,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('complains', 'Backend\ComplainController');
     Route::resource('department', 'Backend\DepartmentController');
     Route::resource('teacher', 'Backend\TeacherController');
+    Route::get('pending-complain', 'Backend\ComplainController@pending')->name('pending.complain');
 });

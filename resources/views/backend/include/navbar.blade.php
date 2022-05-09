@@ -13,6 +13,7 @@
                         class="nav-icon ti ti-pencil-alt"></i><span class="nav-title">Complains</span></a>
                 <ul aria-expanded="false">
                     <li> <a href="{{ route('admin.complains.index') }}">Index</a> </li>
+                    <li> <a href="{{ route('admin.pending.complain') }}">Pendings</a> </li>
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i

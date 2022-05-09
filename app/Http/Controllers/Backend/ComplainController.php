@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Complain;
 use Illuminate\Http\Request;
 
 class ComplainController extends Controller
@@ -19,6 +20,17 @@ class ComplainController extends Controller
         ];
 
         return view('backend.pages.complains.index',$data);
+    }
+
+    public function pending()
+    {
+        $data = [
+            'title' => 'Complains-pendings'
+        ];
+
+        $complains = Complain::with(['user','department'])->where('status',1)->get();
+
+        return view('backend.pages.complains.pending',$data, compact('complains'));
     }
 
     /**
@@ -73,7 +85,13 @@ class ComplainController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $complain_status_update = Complain::where('id',$id)->update(['status' => $request->input('status'), 'updated_at' => $request->input('update_date')]);
+
+        if($complain_status_update){
+            return back()->with('success','Complain status updated successfully');
+        }else{
+            return back()->with('error','Complain status could not be updated');
+        }
     }
 
     /**
@@ -84,6 +102,10 @@ class ComplainController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Complain::find($id)->delete()){
+            return back()->with('danger','Item deleted successfully');
+        }else{
+            return back()->with('error','Item can not be deleted');
+        }
     }
 }

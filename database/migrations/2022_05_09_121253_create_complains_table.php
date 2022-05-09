@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('comment')->nullable();
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users');
+            $table->enum('status',['1','2','3'])->default('1')->comment="1=pending,2=Accepted,3=declined";
             $table->timestamps();
         });
     }
