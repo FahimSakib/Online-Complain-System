@@ -1,3 +1,9 @@
+@php
+    if($message = Session::get('success')){
+    toast($message,'success');
+    }
+@endphp
+
 <div class="app-main" id="main">
     <!-- begin container-fluid -->
     <div class="container-fluid">

@@ -1,3 +1,8 @@
+@php
+    if($message = Session::get('success')){
+    toast($message,'success');
+    }
+@endphp
 <div class="app-main" id="main">
     <!-- begin container-fluid -->
     <div class="container-fluid">
@@ -120,6 +125,29 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="col-md-6">
+                            <form action="{{ route('admin.complains.update',$complain->id) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <select class="custom-select" id="inputGroupSelect04" name="status">
+                                            <option value="1" {{ $complain->status == 1 ? 'selected' : ''}}>
+                                                Pending</option>
+                                            <option value="2" {{ $complain->status == 2 ? 'selected' : ''}}>
+                                                Accepted</option>
+                                            <option value="3" {{ $complain->status == 3 ? 'selected' : ''}}>
+                                                declined</option>
+                                        </select>
+                                        <input type="hidden" name="update_date"
+                                            value="{{ date('Y-m-d H:i:s') }}">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">Update Status</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

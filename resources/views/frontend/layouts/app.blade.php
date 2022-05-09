@@ -82,6 +82,8 @@
     
  @include('frontend.include.scripts')
  @stack('scripts')
+ @include('sweetalert::alert')
+
   
   
 </body>
