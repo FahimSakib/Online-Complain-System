@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ComplainController extends Controller
@@ -17,7 +19,10 @@ class ComplainController extends Controller
         $data = [
             'title' => 'Complain'
         ];
-        return view('frontend.pages.complain.complain',$data);
+
+        $departments = Department::get();
+
+        return view('frontend.pages.complain.complain',$data, compact('departments'));
     }
 
     /**
@@ -85,4 +90,20 @@ class ComplainController extends Controller
     {
         //
     }
+
+    public function teachers(Request $request){
+        if ($request->ajax()) {
+            if($request->department_id){
+                $output = '<option value="">Select Please</option>';
+                $teachers = User::where([['role_id',2], ['department_id',$request->department_id]])->get();
+                if($teachers){
+                    foreach ($teachers as $teacher) {
+                        $output .= '<option value="'.$teacher->id.'">'.$teacher->name.'</option>';
+                    }
+                }
+                return response()->json($output);
+            }
+        }
+    }
+
 }

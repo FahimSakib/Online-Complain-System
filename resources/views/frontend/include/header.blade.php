@@ -47,7 +47,7 @@
                             </ul> 
                         </li> --}}
                         <li class="nav-item"><a href="{{route('home')}}" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="{{route('complain')}}" class="nav-link">Complain</a></li>
+                        <li class="nav-item"><a href="{{route('complain.index')}}" class="nav-link">Complain</a></li>
                         {{-- <li class="nav-item"><a href="course.html" class="nav-link">Contact</a>
                             <ul class="navbar-nav nav mx-auto">
                                 <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>

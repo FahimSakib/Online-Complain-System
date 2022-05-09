@@ -29,8 +29,12 @@ use Illuminate\Support\Facades\Route;
 // });
 //FRONTEND ROUTES:
 Route::get('/','Frontend\HomeController@index')->name('home');
-Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
-Route::get('complain','Frontend\ComplainController@index')->name('complain');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
+    Route::resource('complain','Frontend\ComplainController');
+    Route::post('teachers', 'Frontend\ComplainController@teachers')->name('teachers');
+});
 
 // backend routes:
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
