@@ -17,6 +17,7 @@ class DashboardController extends Controller
         $data = [
             'title' => 'Dashboard'
         ];
+        
         return view('frontend.pages.dashboard.dashboard',$data);
     }
 

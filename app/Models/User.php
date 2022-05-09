@@ -71,7 +71,7 @@ class User extends Authenticatable
         return $this->belongsTo(Department::class);
     }
 
-    public function Complains(){
+    public function complains(){
         return $this->hasMany(Complain::class);
     }
 
