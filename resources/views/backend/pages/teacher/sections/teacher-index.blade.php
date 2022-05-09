@@ -16,9 +16,9 @@
                                     <a href="{{ route('admin.index') }}"><i class="ti ti-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    Department
+                                    Teacher
                                 </li>
-                                <li class="breadcrumb-item active text-primary" aria-current="page">List of Departments
+                                <li class="breadcrumb-item active text-primary" aria-current="page">List of Teachers
                                 </li>
                             </ol>
                         </nav>
@@ -37,8 +37,12 @@
                             <table id="datatable" class="display compact table table-striped table-bordered">
                                 <thead>
                                     <tr>
+                                        <th>SL</th>
+                                        <th>Name</th>
                                         <th>ID</th>
-                                        <th>Title</th>
+                                        <th>Designation</th>
+                                        <th>Department</th>
+                                        <th>Mobile</th>
                                         <th>Status</th>
                                         <th>Action</th>
 
@@ -49,12 +53,22 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($department as $item)
+                                        @foreach ($teachers as $teacher)
                                         <td class="text-center">
                                             {{$i++}}
                                         </td>
-                                        <td>{{$item->title}}</td>
-                                        <td>{{$item->status}}</td>
+                                        <td>{{$teacher->name}}</td>
+                                        <td>{{$teacher->id_no}}</td>
+                                        <td>{{$teacher->designation}}</td>
+                                        <td>{{$teacher->department->title}}</td>
+                                        <td>{{$teacher->mobile}}</td>
+                                        <td>
+                                            @if ($teacher->status == 1)
+                                                Active
+                                                @else
+                                                Inactive
+                                            @endif
+                                        </td>
                                         <td class="nav-item dropdown">
                                             <a href="javascript:void(0)" class="nav-link" id="navbarDropdown1"
                                                 role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -63,13 +77,13 @@
                                             </a>
                                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item has-icon"
-                                                    href="{{ route('admin.department.show',$item->id) }}"><i
+                                                    href="{{ route('admin.teacher.show',$teacher->id) }}"><i
                                                         class="fa fa-eye"></i> View</a>
                                                 <a class="dropdown-item has-icon"
-                                                    href="{{ route('admin.department.edit',$item->id) }}"><i
+                                                    href="{{ route('admin.teacher.edit',$teacher->id) }}"><i
                                                         class="fa fa-edit"></i> Edit</a>
                                                 <div class="del ml-4">
-                                                    <form action="{{ route('admin.department.destroy',$item->id) }}"
+                                                    <form action="{{ route('admin.teacher.destroy',$teacher->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -105,3 +119,36 @@
 <!-- end container-fluid -->
 </div>
 <!-- end app-main -->
+
+
+@push('scripts')
+<script src="asset/backend/assets/bundles/sweetalert/sweetalert.min.js"></script>
+
+<script>
+    $('.delete_confirm').click(function (event) {
+        var form = $(this).closest("form");
+        event.preventDefault();
+        swal({
+                title: "Are you sure you want to delete this record?",
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                dangerMode: true,
+                buttons: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                    swal('Poof! An item has been deleted!', {
+                        icon: 'success',
+                        timer: 3000,
+                    });
+                } else {
+                    swal('Your data is safe!',{
+                        timer: 3000,
+                    });
+                }
+            });
+    });
+
+</script>
+@endpush
