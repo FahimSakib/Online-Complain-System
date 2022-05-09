@@ -33,6 +33,17 @@ class ComplainController extends Controller
         return view('backend.pages.complains.pending',$data, compact('complains'));
     }
 
+    public function declined()
+    {
+        $data = [
+            'title' => 'Complains-pendings'
+        ];
+
+        $complains = Complain::with(['user','department'])->where('status',3)->get();
+
+        return view('backend.pages.complains.declined',$data, compact('complains'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

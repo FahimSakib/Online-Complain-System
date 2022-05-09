@@ -7,7 +7,7 @@
                 <!-- begin page title -->
                 <div class="d-block d-sm-flex flex-nowrap align-items-center">
                     <div class="page-title mb-2 mb-sm-0">
-                        <h1>Complains</h1>
+                        <h1>Complain</h1>
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
@@ -100,11 +100,11 @@
                                         </td>
                                         @elseif ($complain->status == '2')
                                         <td>
-                                            <span class="badge badge-primary">Accepted</span>
+                                            <span class="badge badge-success">Accepted</span>
                                         </td>
                                         @else
                                         <td>
-                                            <span class="badge badge-success">Declined</span>
+                                            <span class="badge badge-danger">Declined</span>
                                         </td>
                                         @endif
                                     </tr>
