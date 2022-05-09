@@ -16,4 +16,8 @@ class Department extends Model
         return $this->hasMany(User::class);
     }
 
+    public function Complains(){
+        return $this->hasMany(Complain::class);
+    }
+
 }

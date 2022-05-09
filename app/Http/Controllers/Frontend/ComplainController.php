@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Complain;
 use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -43,7 +44,24 @@ class ComplainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'department_id' => 'required',
+            'teacher_id'    => 'required',
+            'problem1'      => 'required',
+            'problem2'      => 'required',
+            'problem3'      => 'required',
+            'problem4'      => 'required',
+            'problem5'      => 'required',
+        ]);
+
+        $complain = new Complain($request->all());
+        
+        if($complain->save())
+        {
+            return redirect()->route('dashboard')->with('success','Complain submitted successfully');
+        }else{
+            return redirect()->route('dashboard')->with('error','Item can not be added');
+        }
     }
 
     /**
