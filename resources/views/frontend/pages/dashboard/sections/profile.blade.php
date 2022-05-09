@@ -1,3 +1,9 @@
+@php
+    if($message = Session::get('success')){
+    toast($message,'success');
+    }
+@endphp
+
 <section class="teachers_profile">
     <div class="container">
         <div class="row">

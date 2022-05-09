@@ -56,6 +56,7 @@
 
     @include('backend.include.scripts')
     @stack('scripts')
+    @include('sweetalert::alert')
 </body>
 
 

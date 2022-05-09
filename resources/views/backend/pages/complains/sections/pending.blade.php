@@ -13,7 +13,7 @@
                 <!-- begin page title -->
                 <div class="d-block d-sm-flex flex-nowrap align-items-center">
                     <div class="page-title mb-2 mb-sm-0">
-                        <h1>Accepted Complains</h1>
+                        <h1>Pending Complains</h1>
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
@@ -109,10 +109,10 @@
                                                         @method('put')
                                                         <input type="hidden" name="update_date"
                                                             value="{{ date('Y-m-d H:i:s') }}">
-                                                        <input type="hidden" name="status" value="1">
+                                                        <input type="hidden" name="status" value="2">
                                                         <button type="submit" class="btn" aria-hidden="true"
                                                             style="background-color:transparent;"><i
-                                                                class="fa fa-plus-square"></i> Pending</button>
+                                                                class="fa fa-plus-square"></i> Accept</button>
                                                     </form>
                                                 </div>
                                                 <div>

@@ -1,3 +1,9 @@
+@php
+    if($message = Session::get('success')){
+    toast($message,'success');
+    }
+@endphp
+
 <div class="app-main" id="main">
     <!-- begin container-fluid -->
     <div class="container-fluid">
@@ -64,9 +70,9 @@
                                         <td>{{$teacher->mobile}}</td>
                                         <td>
                                             @if ($teacher->status == 1)
-                                                Active
-                                                @else
-                                                Inactive
+                                            Active
+                                            @else
+                                            Inactive
                                             @endif
                                         </td>
                                         <td class="nav-item dropdown">
@@ -93,22 +99,13 @@
                                                     </form>
                                                 </div>
                                             </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
-                        </td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                        {{-- <tfoot>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
-                                                    </tr>
-                                                </tfoot> --}}
-                        </table>
+
                     </div>
                 </div>
             </div>
@@ -122,33 +119,33 @@
 
 
 @push('scripts')
-<script src="asset/backend/assets/bundles/sweetalert/sweetalert.min.js"></script>
+    <script src="asset/backend/assets/js/sweetalert.min.js"></script>
 
-<script>
-    $('.delete_confirm').click(function (event) {
-        var form = $(this).closest("form");
-        event.preventDefault();
-        swal({
-                title: "Are you sure you want to delete this record?",
-                text: "If you delete this, it will be gone forever.",
-                icon: "warning",
-                dangerMode: true,
-                buttons: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    form.submit();
-                    swal('Poof! An item has been deleted!', {
-                        icon: 'success',
-                        timer: 3000,
-                    });
-                } else {
-                    swal('Your data is safe!',{
-                        timer: 3000,
-                    });
-                }
-            });
-    });
+    <script>
+        $('.delete_confirm').click(function (event) {
+            var form = $(this).closest("form");
+            event.preventDefault();
+            swal({
+                    title: "Are you sure you want to delete this record?",
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    dangerMode: true,
+                    buttons: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                        swal('Poof! An item has been deleted!', {
+                            icon: 'success',
+                            timer: 3000,
+                        });
+                    } else {
+                        swal('Your data is safe!', {
+                            timer: 3000,
+                        });
+                    }
+                });
+        });
 
-</script>
+    </script>
 @endpush
