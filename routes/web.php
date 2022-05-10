@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 // backend routes:
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','admin']], function(){
     Route::resource('/', 'Backend\DashboardController');
     Route::resource('complains', 'Backend\ComplainController');
     Route::resource('department', 'Backend\DepartmentController');
