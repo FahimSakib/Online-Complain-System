@@ -91,7 +91,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
-                                    <label for="exampleFormControlSelect7">Problem 5</label>
+                                    <label for="exampleFormControlSelect7">Lack Of Effective Communication</label>
                                     <select class="form-control @error('problem5') is-invalid @enderror" id="exampleFormControlSelect7" name="problem5">
                                         <option value="">Select Please</option>
                                         <option value="0">0</option>
