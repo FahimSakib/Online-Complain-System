@@ -7,14 +7,24 @@
                         <div class="contact_info">                   
         					<ul class="list-unstyled">
                                 <li><i class="flaticon-phone-receiver"></i>+01811990871</li>
-        						<li><i class="flaticon-mail-black-envelope-symbol"></i>online.complain.system@gmail.com</li>
+        						<li><i class="flaticon-mail-black-envelope-symbol"></i>onlinecs@gmail.com</li>
         					</ul>                    
                         </div>
                         <div class="login_info">
-                             <ul class="d-flex">
+  
+                            <ul class="d-flex">
+                            @if (auth()->guest())
                                 <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>
-                            </ul>
+                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Log In</a></li>                            </li>
+                            @else
+                            <li class="nav-item"><a href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a></li>
+                            <li class="nav-item"><form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button class="btn-danger" type="submit">Logout</button>
+                            </form>
+                            </li>
+                            @endif
+                        </ul>
                            
                         </div>
                         {{-- <div class="social_wrapper d-flex">
@@ -38,58 +48,10 @@
                 <a class="navbar-brand" href="index-2.html"><img src="asset/frontend/images/logo2.png" alt="logo"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
-                        {{-- <li class="nav-item"><a href="#" class="nav-link active">Home</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
-                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
-                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
-                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
-                            </ul> 
-                        </li> --}}
+  
                         <li class="nav-item"><a href="{{route('home')}}" class="nav-link {{ (request()->is('/')) ? 'active' : '' }}">Home</a></li>
                         <li class="nav-item"><a href="{{route('complain.index')}}" class="nav-link {{ (request()->is('complain')) ? 'active' : '' }}">Complain</a></li>
-                        {{-- <li class="nav-item"><a href="course.html" class="nav-link">Contact</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                            </ul> 
-                        </li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                            </ul> 
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                        <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                                    </ul>    
-                                </li>                                 
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Events</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-                                        <li class="nav-item"><a href="event-details.html" class="nav-link">Event Details</a></li>
-                                    </ul>    
-                                </li>                                
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                        <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                        <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                        <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                                    </ul>    
-                                </li> 
-                                <li class="nav-item"><a href="become-a-teacher.html" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="teacher-profile.html" class="nav-link">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
-                                <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
-                            </ul>                            
-                        </li>      --}}
+                        
                         <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}">Profile</a></li>
                         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
