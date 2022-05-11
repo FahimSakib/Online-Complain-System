@@ -168,8 +168,8 @@
                                             <a href="javascript:void(0)">
                                                 <div class="notification d-flex flex-row align-items-center">
                                                     <div class="notify-icon bg-img align-self-center">
-                                                        <img class="img-fluid" src="asset/backend/assets/img/avtar/03.jpg"
-                                                            alt="user3">
+                                                        <img class="img-fluid"
+                                                            src="asset/backend/assets/img/avtar/03.jpg" alt="user3">
                                                     </div>
                                                     <div class="notify-message">
                                                         <p class="font-weight-bold">Brianing Leyon</p>
@@ -182,7 +182,8 @@
                                             <a href="javascript:void(0)">
                                                 <div class="notification d-flex flex-row align-items-center">
                                                     <div class="notify-icon bg-img align-self-center">
-                                                        <img class="img-fluid" src="asset/backend/assets/img/avtar/01.jpg" alt="user">
+                                                        <img class="img-fluid"
+                                                            src="asset/backend/assets/img/avtar/01.jpg" alt="user">
                                                     </div>
                                                     <div class="notify-message">
                                                         <p class="font-weight-bold">Jimmyimg Leyon</p>
@@ -195,8 +196,8 @@
                                             <a href="javascript:void(0)">
                                                 <div class="notification d-flex flex-row align-items-center">
                                                     <div class="notify-icon bg-img align-self-center">
-                                                        <img class="img-fluid" src="asset/backend/assets/img/avtar/02.jpg"
-                                                            alt="user2">
+                                                        <img class="img-fluid"
+                                                            src="asset/backend/assets/img/avtar/02.jpg" alt="user2">
                                                     </div>
                                                     <div class="notify-message">
                                                         <p class="font-weight-bold">Brainjon Leyon</p>
@@ -209,8 +210,8 @@
                                             <a href="javascript:void(0)">
                                                 <div class="notification d-flex flex-row align-items-center">
                                                     <div class="notify-icon bg-img align-self-center">
-                                                        <img class="img-fluid" src="asset/backend/assets/img/avtar/04.jpg"
-                                                            alt="user4">
+                                                        <img class="img-fluid"
+                                                            src="asset/backend/assets/img/avtar/04.jpg" alt="user4">
                                                     </div>
                                                     <div class="notify-message">
                                                         <p class="font-weight-bold">Smithmin Leyon</p>
@@ -223,8 +224,8 @@
                                             <a href="javascript:void(0)">
                                                 <div class="notification d-flex flex-row align-items-center">
                                                     <div class="notify-icon bg-img align-self-center">
-                                                        <img class="img-fluid" src="asset/backend/assets/img/avtar/05.jpg"
-                                                            alt="user5">
+                                                        <img class="img-fluid"
+                                                            src="asset/backend/assets/img/avtar/05.jpg" alt="user5">
                                                     </div>
                                                     <div class="notify-message">
                                                         <p class="font-weight-bold">Jennyns Leyon</p>
@@ -237,8 +238,8 @@
                                             <a href="javascript:void(0)">
                                                 <div class="notification d-flex flex-row align-items-center">
                                                     <div class="notify-icon bg-img align-self-center">
-                                                        <img class="img-fluid" src="asset/backend/assets/img/avtar/06.jpg"
-                                                            alt="user6">
+                                                        <img class="img-fluid"
+                                                            src="asset/backend/assets/img/avtar/06.jpg" alt="user6">
                                                     </div>
                                                     <div class="notify-message">
                                                         <p class="font-weight-bold">Demian Leyon</p>
@@ -379,22 +380,27 @@
                     <li class="nav-item dropdown user-profile">
                         <a href="javascript:void(0)" class="nav-link dropdown-toggle " id="navbarDropdown4"
                             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="asset/backend/assets/img/avtar/02.jpg" alt="avtar-img">
+                            <img src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}">
                             <span class="bg-success user-status"></span>
                         </a>
                         <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
                             <div class="bg-gradient px-4 py-3">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="mr-1">
-                                        <h4 class="text-white mb-0">Alice Williams</h4>
-                                        <small class="text-white">Henry@example.com</small>
+                                        <h4 class="text-white mb-0">{{ auth()->user()->name }}</h4>
+                                        <small class="text-white">{{ auth()->user()->email }}</small>
                                     </div>
-                                    <a href="#" class="text-white font-20 tooltip-wrapper" data-toggle="tooltip"
-                                        data-placement="top" title="" data-original-title="Logout"> <i
-                                            class="zmdi zmdi-power"></i></a>
+                                    <form method="POST" action="{{ route('admin.logout') }}">
+                                        @csrf
+                                        <button type="submit" style="background: transparent; border:none">
+                                            <a class="text-white font-20 tooltip-wrapper" data-toggle="tooltip"
+                                                data-placement="top" title="" data-original-title="Logout"> <i
+                                                    class="zmdi zmdi-power"></i></a>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="p-4">
+                            {{-- <div class="p-4">
                                 <a class="dropdown-item d-flex nav-link" href="javascript:void(0)">
                                     <i class="fa fa-user pr-2 text-success"></i> Profile</a>
                                 <a class="dropdown-item d-flex nav-link" href="javascript:void(0)">
@@ -420,7 +426,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </li>
                 </ul>

@@ -44,4 +44,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::resource('teacher', 'Backend\TeacherController');
     Route::get('pending-complain', 'Backend\ComplainController@pending')->name('pending.complain');
     Route::get('declined-complain', 'Backend\ComplainController@declined')->name('declined.complain');
+    Route::post('logout','Backend\DashboardController@adminLogout')->name('logout');
 });
