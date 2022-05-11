@@ -27,15 +27,7 @@
                         </ul>
                            
                         </div>
-                        {{-- <div class="social_wrapper d-flex">
-                            <span>Follow Us : </span>
-                            <ul class="social-items d-flex list-unstyled">
-                                <li><a href="#"><i class="fab fa-facebook-f fb_icon"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter tw_icon"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in link_icon"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram in_icon"></i></a></li>
-                            </ul>   
-                        </div> --}}
+                    
                     </div>
                 </div>
             </div>
@@ -53,21 +45,10 @@
                         <li class="nav-item"><a href="{{route('complain.index')}}" class="nav-link {{ (request()->is('complain')) ? 'active' : '' }}">Complain</a></li>
                         
                         <li class="nav-item"><a href="{{route('dashboard')}}" class="nav-link {{ (request()->is('dashboard')) ? 'active' : '' }}">Profile</a></li>
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        {{-- <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> --}}
                     </ul>
                 </div>
-                <div class="mr-auto search_area ">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
-                            <div id="search">
-                                <button type="button" class="close">×</button>
-                                 <form>
-                                     <input type="search" value="" placeholder="Search here...."  required/>
-                                 </form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+             
             </nav><!-- END NAVBAR -->
         </div> 
     </div>
