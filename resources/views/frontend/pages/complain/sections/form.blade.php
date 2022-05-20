@@ -34,27 +34,25 @@
                                     <label for="exampleFormControlSelect3">Late</label>
                                     <select class="form-control @error('problem1') is-invalid @enderror" id="exampleFormControlSelect3" name="problem1">
                                         <option value="">Select Please</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                   
+                                        <option value="1">YES</option>
+                                        <option value="0">NO</option>
+                                     
                                     </select>
                                     @error('problem1')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                                     @enderror
                                 </div>
+
+                           
                                 <div class="col-12 col-sm-12 col-md-6 form-group">
                                     <label for="exampleFormControlSelect4">Behaviour</label>
                                     <select class="form-control @error('problem2') is-invalid @enderror" id="exampleFormControlSelect4" name="problem2">
                                         <option value="">Select Please</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                      
+                                        <option value="1">GOOD</option>
+                                        <option value="0">POOR</option>
+                                
                                     </select>
                                     @error('problem2')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -64,12 +62,9 @@
                                     <label for="exampleFormControlSelect5">Teaching method</label>
                                     <select class="form-control @error('problem3') is-invalid @enderror" id="exampleFormControlSelect5" name="problem3">
                                         <option value="">Select Please</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                    <option value="1">GOOD</option>
+                                        <option value="0">POOR</option>
+                              
                                     </select>
                                     @error('problem3')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -79,12 +74,8 @@
                                     <label for="exampleFormControlSelect6">Marking</label>
                                     <select class="form-control @error('problem4') is-invalid @enderror" id="exampleFormControlSelect6" name="problem4">
                                         <option value="">Select Please</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                      <option value="1">GOOD</option>
+                                        <option value="0">POOR</option>
                                     </select>
                                     @error('problem4')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -94,12 +85,8 @@
                                     <label for="exampleFormControlSelect7">Lack Of Effective Communication</label>
                                     <select class="form-control @error('problem5') is-invalid @enderror" id="exampleFormControlSelect7" name="problem5">
                                         <option value="">Select Please</option>
-                                        <option value="0">0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                    <option value="1">GOOD</option>
+                                        <option value="0">POOR</option>
                                     </select>
                                     @error('problem5')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -108,7 +95,7 @@
 
                                 <div class="col-12 col-sm-12 col-md-12 form-group">
                                     <textarea class="form-control @error('comment') is-invalid @enderror" id="comment" name="comment"
-                                        placeholder="Your Comment Wite Here ..."></textarea>
+                                        placeholder="Write your complain here…"></textarea>
                                         @error('comment')
                                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
