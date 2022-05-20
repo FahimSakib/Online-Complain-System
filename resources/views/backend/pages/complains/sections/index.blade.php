@@ -73,23 +73,23 @@
                                         <td>{{ $complain->department->title }}</td>
                                         <td>{{ $student }}</td>
                                         <td
-                                            class="{{ $problem1_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
+                                            class="{{ $problem1_avg <= 0.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem1 }} <br> average:
                                             {{ number_format((float)$problem1_avg, 2, '.', '') }}</td>
                                         <td
-                                            class="{{ $problem2_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
+                                            class="{{ $problem2_avg <= 0.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem2 }} <br> average:
                                             {{ number_format((float)$problem2_avg, 2, '.', '') }}</td>
                                         <td
-                                            class="{{ $problem3_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
+                                            class="{{ $problem3_avg <= 0.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem3 }} <br> average:
                                             {{ number_format((float)$problem3_avg, 2, '.', '') }}</td>
                                         <td
-                                            class="{{ $problem4_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
+                                            class="{{ $problem4_avg <= 0.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem4 }} <br> average:
                                             {{ number_format((float)$problem4_avg, 2, '.', '') }}</td>
                                         <td
-                                            class="{{ $problem5_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
+                                            class="{{ $problem5_avg <= 0.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem5 }} <br> average:
                                             {{ number_format((float)$problem5_avg, 2, '.', '') }}</td>
                                         <td class="nav-item dropdown">
