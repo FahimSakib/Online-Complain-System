@@ -45,16 +45,16 @@ $complains = [];
                             class="img-fluid">
                         @endif
                     </div>
-                    <div class="social_wraper">
+                    {{-- <div class="social_wraper">
                         <ul class="social-items d-flex list-unstyled">
                             <li><a href="#"><i class="fab fa-facebook-f fb-icon"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter twitt-icon"></i></a></li>
                             <li><a href="#"><i class="fab fa-linkedin-in link-icon"></i></a></li>
                             <li><a href="#"><i class="fab fa-instagram ins-icon"></i></a></li>
                         </ul>
-                    </div>
+                    </div> --}}
                     @if ($user->role_id == 2)
-                    <div class="teacher-skills">
+                    {{-- <div class="teacher-skills">
                         <div class="skill-single">
                             <span>HTML - <span class="skills_lavel">80%</span></span>
                             <span><span style="width:80%;"></span></span>
@@ -71,18 +71,18 @@ $complains = [];
                             <span>CSS3 - <span class="skills_lavel">75%</span></span>
                             <span><span style="width:75%;"></span></span>
                         </div>
-                    </div>
+                    </div> --}}
                     @elseif ($user->role_id == 3)
                     <div class="container mt-3">
                         <ul class="list-unstyled">
                             <li>
-                                <h3>Submiited : <br> {{ count($complains) }}</h3>
+                                <h3>Submitted : <br> {{ count($complains) }}</h3>
                             </li>
                             <li>
                                 <h3>Accepted : <br> {{ $complains_accepted }}</h3>
                             </li>
                             <li>
-                                <h3>Accepted : <br> {{ $complains_pending }}</h3>
+                                <h3>Pending : <br> {{ $complains_pending }}</h3>
                             </li>
                             <li>
                                 <h3>Declined : <br> {{ $complains_declined }}</h3>
@@ -102,7 +102,7 @@ $complains = [];
             </div><!-- Ends: .teacher-detail-left -->
             <div class="col-sm-8 teacher-detail-right">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <div class="teacher-info">
                             @if ($user->role_id == 2)
                             <ul class="list-unstyled">
@@ -157,7 +157,7 @@ $complains = [];
                             @endif
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <div class="teacher-contact">
                             <h2>Contact Us</h2>
                             <form action="#">
@@ -167,7 +167,7 @@ $complains = [];
                                 <button type="submit">Submit Your Request</button>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-sm-12">
                         <div class="courses_tab_wrapper">
                             <div class="courses_details_nav_tabs">
@@ -187,11 +187,11 @@ $complains = [];
                                             <tr>
                                                 <th scope="col">SL</th>
                                                 <th scope="col">Student Name</th>
-                                                <th scope="col">Problem 1</th>
-                                                <th scope="col">Problem 2</th>
-                                                <th scope="col">Problem 3</th>
-                                                <th scope="col">Problem 4</th>
-                                                <th scope="col">Problem 5</th>
+                                                <th scope="col">Late</th>
+                                                <th scope="col">Baheviour</th>
+                                                <th scope="col">Teaching Method</th>
+                                                <th scope="col">Marking</th>
+                                                <th scope="col">Lack Of Effective Communiation</th>
                                                 <th scope="col">Comment</th>
                                             </tr>
                                         </thead>
@@ -228,11 +228,12 @@ $complains = [];
                                             <tr>
                                                 <th scope="col">SL</th>
                                                 <th scope="col">Teacher Name</th>
-                                                <th scope="col">Problem 1</th>
-                                                <th scope="col">Problem 2</th>
-                                                <th scope="col">Problem 3</th>
-                                                <th scope="col">Problem 4</th>
-                                                <th scope="col">Problem 5</th>
+                                                      <th scope="col">Late</th>
+                                                <th scope="col">Baheviour</th>
+                                                <th scope="col">Teaching Method</th>
+                                                <th scope="col">Marking</th>
+                                                                                                <th scope="col">Lack Of Effective Communiation</th>
+
                                                 <th scope="col">Comment</th>
                                                 <th scope="col">Status</th>
                                             </tr>
