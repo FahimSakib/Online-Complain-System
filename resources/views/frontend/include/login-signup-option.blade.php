@@ -26,11 +26,11 @@
                                         <div class="col-12 col-lg-12 col-md-12 col-lg-12">
                                       
                                             <div class="form-group">
-                                                <label for="control-label" value="{{ __('Email') }}">Email address
+                                                <label for="control-label" value="{{ __('Email or ID') }}">Email or ID
                                                     *</label>
-                                                <input type="text" class="form-control" id="email" type="email"
-                                                    name="email" :value="old('email')" required autofocus
-                                                    placeholder="Email">
+                                                <input type="text" class="form-control" id="login" type="text"
+                                                    name="login" :value="old('login')" required autofocus
+                                                    placeholder="Email or ID">
                                             </div><!-- End .form-group -->
 
                                         </div>
