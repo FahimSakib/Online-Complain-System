@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 ml-auto p-0">
                 <div class="banner_learn">
-                    <img src="asset/frontend/images/banner/complain.jpg" alt="" class="img-fluid">
+                    <img src="asset/frontend/images/banner/form.jpg" alt="" class="img-fluid">
                  </div>
             </div>
         </div>

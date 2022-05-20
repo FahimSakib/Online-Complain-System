@@ -11,7 +11,7 @@
                             <div class="blog_title">
                                 <span>At First</span>  
                                 <h3><a href="#" title="">Drop A Complain</a></h3> 
-                                <p>Lorem Ipsum dolor sit amet mollis felis arcu donec viverra. Pede phasellus etiam; Aaecenas vel vici quis dictum rutrum nec nisi et ac penatibus aenean....</p>                    
+                                <p>By giving proper credentials students can drop a complain on given categories.They can also submit suggestions about teachers and the system also</p>                    
                             </div>   
                         </div>
                         <div class="single_item single_item_last">
@@ -20,8 +20,9 @@
                             </div>
                             <div class="blog_title">
                                 <span>Next</span>  
-                                <h3><a href="#" title="">Response</a></h3> 
-                                 <p>Lorem Ipsum dolor sit amet mollis felis arcu donec viverra. Pede phasellus etiam; Aaecenas vel vici quis dictum rutrum nec nisi et ac penatibus aenean....</p>  
+                                <h3><a href="#" title="">Response</a></h3>
+                                   <p>After processing the complains by the scale of previuos complains.Admin will make a decision that is it a fruitful complain or not.</p>  
+ 
                             </div>   
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                             <div class="blog_title">
                                 <span>Secondly</span>  
                                 <h3><a href="#" title="">Review</a></h3> 
-                                <p>Lorem Ipsum dolor sit amet mollis felis arcu donec viverra. Pede phasellus etiam; Aaecenas vel vici quis dictum rutrum nec nisi et ac penatibus aenean....</p>                    
+                                 <p>Submitted  complains will reviewed by the authorities.Admin will rejudge the complain on perspective of previous complains</p>  
                             </div>   
                         </div>
                         <div class="single_item single_item_last">
@@ -43,7 +44,7 @@
                             <div class="blog_title">
                                 <span>Finally</span>  
                                 <h3><a href="#" title="">Overcomed Issues</a></h3> 
-                                 <p>Lorem Ipsum dolor sit amet mollis felis arcu donec viverra. Pede phasellus etiam; Aaecenas vel vici quis dictum rutrum nec nisi et ac penatibus aenean....</p>  
+                                 <p>If Complain is positive this will make a response to the faculty member.if complain goes fake this will also notify the student</p>  
                             </div>   
                         </div>
                     </div>
@@ -55,8 +56,8 @@
                 <div class="features_4_content">
                     <div class="title">
                         <h2>How Our System Works</h2>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos esentium voluptatum delenitamus et iusto odio dignissimos ducimus qui blanditiis pri atqueint. </p>
-                        <a href="#" title="">Learn More</a>
+                        <p>A complaint management system is a software program that allows companies to address customers' inquiries, deliver consistent support and manage complaints in a timely manner.</p>
+                        {{-- <a href="#" title="">Learn More</a> --}}
                      </div>
                 </div>
                
