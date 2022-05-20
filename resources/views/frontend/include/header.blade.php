@@ -20,7 +20,7 @@
                             <li class="nav-item"><a href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a></li>
                             <li class="nav-item"><form action="{{ route('logout') }}" method="post">
                                 @csrf
-                                <button class="btn-danger" type="submit">Logout</button>
+                                <button class="btn-danger" type="submit" style="background: transparent; border:none">Logout</button>
                             </form>
                             </li>
                             @endif
