@@ -75,7 +75,7 @@ class User extends Authenticatable
         return $this->hasMany(Complain::class);
     }
 
-    public function setPasswordAttribute($value){
-        $this->attributes['password'] = Hash::make($value);
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
 }
