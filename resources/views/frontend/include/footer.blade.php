@@ -1,15 +1,12 @@
-<footer>
+<footer style="background: #111b51;">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-3 col-md-3 col-lg-3 p-0 ">
-                {{-- <div class="shape_wrapper">
-                    <img src="images/shapes/bubble_shpe_1.png" alt="" class="shape_t_1"> 
-                    <img src="images/shapes/round_shpae_1.png" alt="" class="shape_t_2">
-                </div>    --}}
-            </div>
-            <div class="col-12 col-sm-9 col-md-9 col-lg-9 p-0 become_techer_wrapper">
+        
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-0 become_techer_wrapper">
                 <div class="become_a_teacher">
+
                     <div class="title">
+                                                                    <a class="navbar-brand" href="{{route('home')}}"><img src="asset/frontend/images/100.png" alt="logo" ></a>
                         <h2>About Us</h2>
                         <p>Online Complain Management System provides an online way of solving the problems faced by the public by saving time and eradicate corruption.</p>
                     </div><!-- ends: .section-header -->
@@ -22,7 +19,7 @@
         </div>
         <div class="footer_top">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-12 col-lg-12">
                     <div class="footer_single_col footer_intro">
                         <img src="asset/backend/images/logo2.png" alt="" class="f_logo">
                         {{-- <p>Online Complaint Management System provides an online way of solving the problems faced by the public by saving time and eradicate corruption.</p> --}}

@@ -37,7 +37,7 @@
     <div class="edu_nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
-                <a class="navbar-brand" href="index-2.html"><img src="asset/frontend/images/logo2.png" alt="logo"></a>
+                <a class="navbar-brand" href="{{route('home')}}"><img src="asset/frontend/images/100.png" alt="logo" style="padding-bottom:15px;"></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
   
