@@ -1,7 +1,7 @@
 @php
-    if($message = Session::get('success')){
-    toast($message,'success');
-    }
+if($message = Session::get('success')){
+toast($message,'success');
+}
 @endphp
 <div class="app-main" id="main">
     <!-- begin container-fluid -->
@@ -79,23 +79,43 @@
                                     </tr>
                                     <tr>
                                         <th>Problem 01</th>
-                                        <td class="{{ $problem1_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem1 }} <br> average: {{ number_format((float)$problem1_avg, 2, '.', '') }}</td>
+                                        <td @if($problem1_avg <=0.5) class="text-danger ">False
+                                            @else
+                                            class = "text-success ">True
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Problem 02</th>
-                                        <td class="{{ $problem2_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem2 }} <br> average: {{ number_format((float)$problem2_avg, 2, '.', '') }}</td>
+                                        <td @if($problem2_avg <=0.5) class="text-danger ">False
+                                            @else
+                                            class = "text-success ">True
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Problem 03</th>
-                                        <td class="{{ $problem3_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem3 }} <br> average: {{ number_format((float)$problem3_avg, 2, '.', '') }}</td>
+                                          <td @if($problem3_avg <=0.5) class="text-danger ">False
+                                            @else
+                                            class = "text-success ">True
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Problem 04</th>
-                                        <td class="{{ $problem4_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem4 }} <br> average: {{ number_format((float)$problem4_avg, 2, '.', '') }}</td>
+                                          <td @if($problem4_avg <=0.5) class="text-danger ">False
+                                            @else
+                                            class = "text-success ">True
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Problem 05</th>
-                                        <td class="{{ $problem5_avg <= 2.5 ? 'text-danger' : 'text-success' }}">{{ $complain->problem5 }} <br> average: {{ number_format((float)$problem5_avg, 2, '.', '') }}</td>
+                                          <td @if($problem5_avg <=0.5) class="text-danger ">False
+                                            @else
+                                            class = "text-success ">True
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>Status</th>
@@ -140,8 +160,7 @@
                                             <option value="3" {{ $complain->status == 3 ? 'selected' : ''}}>
                                                 declined</option>
                                         </select>
-                                        <input type="hidden" name="update_date"
-                                            value="{{ date('Y-m-d H:i:s') }}">
+                                        <input type="hidden" name="update_date" value="{{ date('Y-m-d H:i:s') }}">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="submit">Update Status</button>
                                         </div>
