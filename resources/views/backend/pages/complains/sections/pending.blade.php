@@ -72,7 +72,7 @@
                                         <td>{{ $teacher }}</td>
                                         <td>{{ $complain->department->title }}</td>
                                         <td>{{ $student }}</td>
-                                        <td
+                                        {{-- <td
                                             class="{{ $problem1_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem1 }} <br> average:
                                             {{ number_format((float)$problem1_avg, 2, '.', '') }}</td>
@@ -91,7 +91,44 @@
                                         <td
                                             class="{{ $problem5_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem5 }} <br> average:
-                                            {{ number_format((float)$problem5_avg, 2, '.', '') }}</td>
+                                            {{ number_format((float)$problem5_avg, 2, '.', '') }}
+                                            
+                                        </td> --}}
+                                        <td
+                                           @if($problem1_avg <= 0.5)
+                                           class = "text-danger text-center">False
+                                           @else
+                                            class = "text-success text-center">True
+                                           @endif
+                                           </td>
+                                        <td
+                                           @if($problem2_avg <= 0.5)
+                                           class = "text-danger text-center">False
+                                           @else
+                                            class = "text-success text-center">True
+                                           @endif
+                                           </td>
+                                           <td
+                                           @if($problem3_avg <= 0.5)
+                                           class = "text-danger text-center">False
+                                           @else
+                                            class = "text-success text-center">True
+                                           @endif
+                                           </td>
+                                           <td
+                                           @if($problem4_avg < 0.50)
+                                           class = "text-danger text-center">False
+                                           @else
+                                            class = "text-success text-center">True 
+                                           @endif
+                                           </td>
+                                           <td
+                                           @if($problem5_avg <= 0.5)
+                                           class = "text-danger text-center">False
+                                           @else
+                                            class = "text-success text-center">True
+                                           @endif
+                                           </td>
                                         <td class="nav-item dropdown">
                                             <a href="javascript:void(0)" class="nav-link" id="navbarDropdown1"
                                                 role="button" data-toggle="dropdown" aria-haspopup="true"

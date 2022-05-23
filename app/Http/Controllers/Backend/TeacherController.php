@@ -69,9 +69,9 @@ class TeacherController extends Controller
         
         if($teacher->save())
         {
-            return redirect()->route('admin.teacher.index')->with('success','Item added successfully');
+            return redirect()->route('admin.teacher.index')->with('success','Teacher added successfully');
         }else{
-            return redirect()->route('admin.teacher.index')->with('error','Item can not be added');
+            return redirect()->route('admin.teacher.index')->with('error','Teacher can not be added');
         }
     }
 
@@ -141,9 +141,9 @@ class TeacherController extends Controller
         $teacher->image = $image;
 
         if($teacher->save()){
-            return redirect()->route('admin.teacher.index')->with('success','Item Updated successfully');
+            return redirect()->route('admin.teacher.index')->with('success','Teacher Updated successfully');
         }else{
-            return redirect()->route('admin.teacher.index')->with('error','Item can not be updated');
+            return redirect()->route('admin.teacher.index')->with('error','Teacher can not be updated');
         }
     }
 
@@ -156,9 +156,9 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         if(User::find($id)->delete()){
-            return redirect()->route('admin.teacher.index')->with('danger','Item deleted successfully');
+            return redirect()->route('admin.teacher.index')->with('danger','Teacher deleted successfully');
         }else{
-            return redirect()->route('admin.teacher.index')->with('error','Item can not be deleted');
+            return redirect()->route('admin.teacher.index')->with('error','Teacher can not be deleted');
         }
     }
 

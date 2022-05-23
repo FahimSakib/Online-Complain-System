@@ -13,8 +13,11 @@ $teacher = App\Models\User::get();
                     <p>The role of teachers in teaching students has declined for many years. The teacher stands in front of the classroom by the white or blackboard and communicates information for students to learn through repetition.</p>  
                 </div><!-- ends: .section-header -->
             </div>
+             
   @foreach ($teacher as $tt)
-  @if($tt->role_id == 2)
+  
+ 
+  @if($tt->role_id == 2 )
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="single-courses">
                     <div class="courses_banner_wrapper">
@@ -23,7 +26,7 @@ $teacher = App\Models\User::get();
                     </div>
                     <div class="courses_info_wrapper">
                         <div class="courses_title">
-                            <h3><a href="#">{{$tt->department->title}}</a></h3>
+                            {{-- <h3><a href="#">{{$i}}</a></h3> --}}
                             <div class="teachers_name">Teacher - <a href="#" title="">{{$tt->name}}</a></div>
                         </div>
                         <div class="courses_info">

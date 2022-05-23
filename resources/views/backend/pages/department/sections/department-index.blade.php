@@ -62,9 +62,9 @@
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-                                                <a class="dropdown-item has-icon"
+                                                {{-- <a class="dropdown-item has-icon"
                                                     href="{{ route('admin.department.show',$item->id) }}"><i
-                                                        class="fa fa-eye"></i> View</a>
+                                                        class="fa fa-eye"></i> View</a> --}}
                                                 <a class="dropdown-item has-icon"
                                                     href="{{ route('admin.department.edit',$item->id) }}"><i
                                                         class="fa fa-edit"></i> Edit</a>

@@ -108,7 +108,7 @@ class DepartmentController extends Controller
        
 
        
-        return redirect()->route('admin.department.index')->with('success','Item Update successfully');
+        return redirect()->route('admin.department.index')->with('success','Department Updated successfully');
 
     }
 
@@ -121,7 +121,7 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         $department->delete();
-        return redirect()->route('admin.department.index')->with('danger','Item delete successfully');
+        return redirect()->route('admin.department.index')->with('danger','Department deleted successfully');
 
     }
 }

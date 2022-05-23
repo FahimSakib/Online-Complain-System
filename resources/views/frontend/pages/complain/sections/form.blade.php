@@ -51,8 +51,8 @@
                                     <select class="form-control @error('problem2') is-invalid @enderror" id="exampleFormControlSelect4" name="problem2">
                                         <option value="">Select Please</option>
                                       
-                                        <option value="1">GOOD</option>
-                                        <option value="0">POOR</option>
+                                        <option value="0">GOOD</option>
+                                        <option value="1">POOR</option>
                                 
                                     </select>
                                     @error('problem2')
@@ -63,8 +63,8 @@
                                     <label for="exampleFormControlSelect5">Teaching method</label>
                                     <select class="form-control @error('problem3') is-invalid @enderror" id="exampleFormControlSelect5" name="problem3">
                                         <option value="">Select Please</option>
-                                    <option value="1">GOOD</option>
-                                        <option value="0">POOR</option>
+                                    <option value="0">GOOD</option>
+                                        <option value="1">POOR</option>
                               
                                     </select>
                                     @error('problem3')
@@ -75,8 +75,8 @@
                                     <label for="exampleFormControlSelect6">Marking</label>
                                     <select class="form-control @error('problem4') is-invalid @enderror" id="exampleFormControlSelect6" name="problem4">
                                         <option value="">Select Please</option>
-                                      <option value="1">GOOD</option>
-                                        <option value="0">POOR</option>
+                                      <option value="0">GOOD</option>
+                                        <option value="1">POOR</option>
                                     </select>
                                     @error('problem4')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -86,8 +86,8 @@
                                     <label for="exampleFormControlSelect7">Lack Of Effective Communication</label>
                                     <select class="form-control @error('problem5') is-invalid @enderror" id="exampleFormControlSelect7" name="problem5">
                                         <option value="">Select Please</option>
-                                    <option value="1">GOOD</option>
-                                        <option value="0">POOR</option>
+                                    <option value="0">GOOD</option>
+                                        <option value="1">POOR</option>
                                     </select>
                                     @error('problem5')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
