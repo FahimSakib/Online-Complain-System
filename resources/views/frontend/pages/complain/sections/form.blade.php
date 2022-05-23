@@ -1,6 +1,7 @@
 <section class="contact_info_wrapper">
     <div class="container">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            @if (auth()->user()->role_id == 3)
             <div class="contact_form_wrapper">
                 <h3 class="title tex-center">Drop Your Complain</h3>
                 <div class="leave_comment">
@@ -108,7 +109,13 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> 
+            @else
+                <div class="container mb-5">
+                    <h2 class="mt-5">Sorry you are unable to create a complain</h2>
+                </div>
+            @endif
+           
         </div>
     </div>
 </section>

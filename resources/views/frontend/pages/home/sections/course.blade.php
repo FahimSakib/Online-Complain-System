@@ -18,12 +18,12 @@ $teacher = App\Models\User::get();
             <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <div class="single-courses">
                     <div class="courses_banner_wrapper">
-                        <div class="courses_banner"><a href="#"><img src="{{$tt->image}}" alt="" class="img-fluid"></a></div>
+                        <div class="courses_banner"><a href="#"><img src="{{ asset('storage/User_image/'.$tt->image) }}" alt="" class="img-fluid"></a></div>
                       
                     </div>
                     <div class="courses_info_wrapper">
                         <div class="courses_title">
-                            <h3><a href="#">{{$tt->department}}</a></h3>
+                            <h3><a href="#">{{$tt->department->title}}</a></h3>
                             <div class="teachers_name">Teacher - <a href="#" title="">{{$tt->name}}</a></div>
                         </div>
                         <div class="courses_info">
@@ -31,7 +31,7 @@ $teacher = App\Models\User::get();
                                 <li><i class="fas fa-calendar-alt"></i>Working Since {!! date('d-M-Y ', strtotime($tt->created_at)) !!}</li>
                                 <li><i class="fas fa-user"></i>30 Students</li>
                             </ul>
-                            <a href="#" class="cart_btn pr-2">View Details</a>
+                            {{-- <a href="#" class="cart_btn pr-2">View Details</a> --}}
                         </div>
                     </div>
                 </div><!-- Ends: .single courses -->
