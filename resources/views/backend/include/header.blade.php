@@ -5,7 +5,7 @@
         <!-- begin navbar-header -->
         <div class="navbar-header d-flex align-items-center">
             <a href="javascript:void:(0)" class="mobile-toggle"><i class="ti ti-align-right"></i></a>
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{ route('admin.index') }}">
                 <img src="asset/backend/assets/img/b11.png" class="img-fluid logo-desktop" alt="logo" style="width:100%;" />
                 <img src="asset/backend/assets/img/logo-icon.png" class="img-fluid logo-mobile" alt="logo" />
             </a>
