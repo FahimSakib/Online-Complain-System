@@ -1,7 +1,7 @@
 @php
-    if($message = Session::get('success')){
-    toast($message,'success');
-    }
+if($message = Session::get('success')){
+toast($message,'success');
+}
 @endphp
 
 <div class="app-main" id="main">
@@ -17,7 +17,7 @@
                     </div>
                     <div class="ml-auto d-flex align-items-center">
                         <nav>
-                           @include('backend.pages.complains.sections.breadcrumb')
+                            @include('backend.pages.complains.sections.breadcrumb')
                         </nav>
                     </div>
                 </div>
@@ -48,103 +48,104 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                        $i = 1;
+                                    $i = 1;
                                     @endphp
                                     @foreach ($complains as $complain)
-                                        <tr>
-                                            <td>{{ $i++ }}</td>
-                                            @php
-                                                $teacher = App\Models\User::where('id',$complain->teacher_id)->pluck('name')->first();
-                                                // $student = App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
-                                                $problem1_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem1');
-                                                $problem2_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem2');
-                                                $problem3_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem3');
-                                                $problem4_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem4');
-                                                $problem5_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem5');
-                                            @endphp
-                                            <td>{{ $teacher }}</td>
-                                            <td>{{ $complain->department->title }}</td>
-                                            {{-- <td>{{ $student }}</td> --}}
-<td
-                                           @if($problem1_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        @php
+                                        $teacher =
+                                        App\Models\User::where('id',$complain->teacher_id)->pluck('name')->first();
+                                        // $student =
+                                        App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
+                                        $problem1_avg =
+                                        App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem1');
+                                        $problem2_avg =
+                                        App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem2');
+                                        $problem3_avg =
+                                        App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem3');
+                                        $problem4_avg =
+                                        App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem4');
+                                        $problem5_avg =
+                                        App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem5');
+                                        @endphp
+                                        <td>{{ $teacher }}</td>
+                                        <td>{{ $complain->department->title }}</td>
+                                        {{-- <td>{{ $student }}</td> --}}
+                                        <td @if($problem1_avg <=0.5) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                        <td
-                                           @if($problem2_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                            @endif
+                                        </td>
+                                        <td @if($problem2_avg <=0.5) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                           <td
-                                           @if($problem3_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                            @endif
+                                        </td>
+                                        <td @if($problem3_avg <=0.5) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                           <td
-                                           @if($problem4_avg < 0.50)
-                                           class = "text-danger text-center">False
-                                           @else
-                                            class = "text-success text-center">True 
-                                           @endif
-                                           </td>
-                                           <td
-                                           @if($problem5_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                            @endif
+                                        </td>
+                                        <td @if($problem4_avg <=0.50) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                            <td class="nav-item dropdown">
-                                                <a href="javascript:void(0)" class="nav-link" id="navbarDropdown1"
-                                                    role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">Action
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-                                                    <a class="dropdown-item has-icon"
-                                                        href="{{ route('admin.complains.show',$complain->id) }}"><i
-                                                            class="fa fa-eye"></i> View</a>
-                                                    <div>
-                                                        <form action="{{ route('admin.complains.update',$complain->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('put')
-                                                            <input type="hidden" name="update_date"
+                                            @endif
+                                        </td>
+                                        <td @if($problem5_avg <=0.5) class="text-danger text-center">False
+                                            @else
+                                            class = "text-success text-center">True
+                                            @endif
+                                        </td>
+                                        <td class="nav-item dropdown">
+                                            <a href="javascript:void(0)" class="nav-link" id="navbarDropdown1"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">Action
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item has-icon"
+                                                    href="{{ route('admin.complains.show',$complain->id) }}"><i
+                                                        class="fa fa-eye"></i> View</a>
+                                                <div>
+                                                    <form action="{{ route('admin.complains.update',$complain->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('put')
+                                                        <input type="hidden" name="update_date"
                                                             value="{{ date('Y-m-d H:i:s') }}">
-                                                            <input type="hidden" name="status"
-                                                            value="2">
-                                                            <button type="submit" class="btn" aria-hidden="true" style="background-color:transparent;"><i class="fa fa-plus-square"></i> Accept</button>
-                                                        </form>
-                                                    </div>
-                                                    <div>
-                                                        <form action="{{ route('admin.complains.update',$complain->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('put')
-                                                            <input type="hidden" name="update_date"
-                                                            value="{{ date('Y-m-d H:i:s') }}">
-                                                            <input type="hidden" name="status"
-                                                            value="1">
-                                                            <button type="submit" class="btn" aria-hidden="true" style="background-color:transparent;"><i class="fa fa-minus-square"></i> Pending</button>
-                                                        </form>
-                                                    </div>
-                                                    <div>
-                                                        <form action="{{ route('admin.complains.destroy',$complain->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn delete_confirm" aria-hidden="true" style="background-color:transparent;"><i class="fa fa-trash"></i>  Delete</button>
-                                                        </form>
-                                                    </div>
+                                                        <input type="hidden" name="status" value="2">
+                                                        <button type="submit" class="btn" aria-hidden="true"
+                                                            style="background-color:transparent;"><i
+                                                                class="fa fa-plus-square"></i> Accept</button>
+                                                    </form>
                                                 </div>
-                                            </td>
-                                        </tr>
+                                                <div>
+                                                    <form action="{{ route('admin.complains.update',$complain->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('put')
+                                                        <input type="hidden" name="update_date"
+                                                            value="{{ date('Y-m-d H:i:s') }}">
+                                                        <input type="hidden" name="status" value="1">
+                                                        <button type="submit" class="btn" aria-hidden="true"
+                                                            style="background-color:transparent;"><i
+                                                                class="fa fa-minus-square"></i> Pending</button>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <form action="{{ route('admin.complains.destroy',$complain->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn delete_confirm"
+                                                            aria-hidden="true" style="background-color:transparent;"><i
+                                                                class="fa fa-trash"></i> Delete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -160,33 +161,33 @@
 
 @push('scripts')
 
-    <script src="asset/backend/assets/js/sweetalert.min.js"></script>
+<script src="asset/backend/assets/js/sweetalert.min.js"></script>
 
-    <script>
-        $('.delete_confirm').click(function (event) {
-            var form = $(this).closest("form");
-            event.preventDefault();
-            swal({
-                    title: "Are you sure you want to delete this record?",
-                    text: "If you delete this, it will be gone forever.",
-                    icon: "warning",
-                    dangerMode: true,
-                    buttons: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        form.submit();
-                        swal('Poof! An item has been deleted!', {
-                            icon: 'success',
-                            timer: 3000,
-                        });
-                    } else {
-                        swal('Your data is safe!', {
-                            timer: 3000,
-                        });
-                    }
-                });
-        });
+<script>
+    $('.delete_confirm').click(function (event) {
+        var form = $(this).closest("form");
+        event.preventDefault();
+        swal({
+                title: "Are you sure you want to delete this record?",
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                dangerMode: true,
+                buttons: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                    swal('Poof! An item has been deleted!', {
+                        icon: 'success',
+                        timer: 3000,
+                    });
+                } else {
+                    swal('Your data is safe!', {
+                        timer: 3000,
+                    });
+                }
+            });
+    });
 
-    </script>
+</script>
 @endpush

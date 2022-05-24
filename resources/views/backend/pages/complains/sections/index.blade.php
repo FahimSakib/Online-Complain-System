@@ -1,7 +1,7 @@
 @php
-    if($message = Session::get('success')){
-    toast($message,'success');
-    }
+if($message = Session::get('success')){
+toast($message,'success');
+}
 @endphp
 
 <div class="app-main" id="main">
@@ -72,41 +72,31 @@
                                         <td>{{ $teacher }}</td>
                                         <td>{{ $complain->department->title }}</td>
                                         {{-- <td>{{ $student }}</td> --}}
-      <td
-                                           @if($problem1_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                        <td @if($problem1_avg <=0.5) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                        <td
-                                           @if($problem2_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                            @endif
+                                        </td>
+                                        <td @if($problem2_avg <=0.5) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                           <td
-                                           @if($problem3_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                            @endif
+                                        </td>
+                                        <td @if($problem3_avg <=0.5) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
-                                           <td
-                                           @if($problem4_avg <= 0.50)
-                                           class = "text-danger text-center">False
-                                           @else
-                                            class = "text-success text-center">True 
-                                           @endif
-                                           </td>
-                                           <td
-                                           @if($problem5_avg <= 0.5)
-                                           class = "text-danger text-center">False
-                                           @else
+                                            @endif
+                                        </td>
+                                        <td @if($problem4_avg <=0.50) class="text-danger text-center">False
+                                            @else
                                             class = "text-success text-center">True
-                                           @endif
-                                           </td>
+                                            @endif
+                                        </td>
+                                        <td @if($problem5_avg <=0.5) class="text-danger text-center">False
+                                            @else
+                                            class = "text-success text-center">True
+                                            @endif
+                                        </td>
                                         <td class="nav-item dropdown">
                                             <a href="javascript:void(0)" class="nav-link" id="navbarDropdown1"
                                                 role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -170,33 +160,33 @@
 </div>
 
 @push('scripts')
-    <script src="asset/backend/assets/js/sweetalert.min.js"></script>
+<script src="asset/backend/assets/js/sweetalert.min.js"></script>
 
-    <script>
-        $('.delete_confirm').click(function (event) {
-            var form = $(this).closest("form");
-            event.preventDefault();
-            swal({
-                    title: "Are you sure you want to delete this record?",
-                    text: "If you delete this, it will be gone forever.",
-                    icon: "warning",
-                    dangerMode: true,
-                    buttons: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        form.submit();
-                        swal('Poof! An item has been deleted!', {
-                            icon: 'success',
-                            timer: 3000,
-                        });
-                    } else {
-                        swal('Your data is safe!', {
-                            timer: 3000,
-                        });
-                    }
-                });
-        });
+<script>
+    $('.delete_confirm').click(function (event) {
+        var form = $(this).closest("form");
+        event.preventDefault();
+        swal({
+                title: "Are you sure you want to delete this record?",
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                dangerMode: true,
+                buttons: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                    swal('Poof! An item has been deleted!', {
+                        icon: 'success',
+                        timer: 3000,
+                    });
+                } else {
+                    swal('Your data is safe!', {
+                        timer: 3000,
+                    });
+                }
+            });
+    });
 
-    </script>
+</script>
 @endpush
