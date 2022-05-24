@@ -37,7 +37,7 @@
                                         <th>SL</th>
                                         <th>Teacher</th>
                                         <th>Department</th>
-                                        <th>Student</th>
+                                        {{-- <th>Student</th> --}}
                                         <th>Problem 1</th>
                                         <th>Problem 2</th>
                                         <th>Problem 3</th>
@@ -55,7 +55,7 @@
                                             <td>{{ $i++ }}</td>
                                             @php
                                                 $teacher = App\Models\User::where('id',$complain->teacher_id)->pluck('name')->first();
-                                                $student = App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
+                                                // $student = App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
                                                 $problem1_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem1');
                                                 $problem2_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem2');
                                                 $problem3_avg = App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem3');
@@ -64,7 +64,7 @@
                                             @endphp
                                             <td>{{ $teacher }}</td>
                                             <td>{{ $complain->department->title }}</td>
-                                            <td>{{ $student }}</td>
+                                            {{-- <td>{{ $student }}</td> --}}
 <td
                                            @if($problem1_avg <= 0.5)
                                            class = "text-danger text-center">False

@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('complains', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('department_id');
-            $table->foreign('department_id')->references('id')->on('departments');            
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');            
             $table->unsignedBigInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('users');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('problem1');         
             $table->string('problem2');         
             $table->string('problem3');         
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('problem5');
             $table->text('comment')->nullable();
             $table->unsignedBigInteger('student_id');
-            $table->foreign('student_id')->references('id')->on('users');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('status',['1','2','3'])->default('1')->comment="1=pending,2=Accepted,3=declined";
             $table->timestamps();
         });

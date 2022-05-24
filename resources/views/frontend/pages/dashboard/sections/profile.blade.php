@@ -9,7 +9,7 @@ $complains = App\Models\Complain::toBase()->where([['teacher_id',auth()->user()-
 }elseif ($user->role_id == 3) {
 $complains = App\Models\Complain::toBase()->where([['student_id',auth()->user()->id]])->get();
 $complains_accepted = App\Models\Complain::toBase()->where([['student_id',auth()->user()->id],['status',2]])->count();
-$complains_pending  = App\Models\Complain::toBase()->where([['student_id',auth()->user()->id],['status',1]])->count();
+$complains_pending = App\Models\Complain::toBase()->where([['student_id',auth()->user()->id],['status',1]])->count();
 $complains_declined = App\Models\Complain::toBase()->where([['student_id',auth()->user()->id],['status',3]])->count();
 }else {
 $complains = [];
@@ -93,11 +93,11 @@ $complains = [];
                     <span>N/A</span>
                     @endif
                     <div class="ml-4 mt-2 pb-2">
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <a type="button"><button class="btn btn-danger" type="submit">Logout</button></a>
-                    </form>
-                </div>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <a type="button"><button class="btn btn-danger" type="submit">Logout</button></a>
+                        </form>
+                    </div>
                 </div>
             </div><!-- Ends: .teacher-detail-left -->
             <div class="col-sm-8 teacher-detail-right">
@@ -168,7 +168,7 @@ $complains = [];
                             </form>
                         </div>
                     </div> --}}
-                    <div class="col-sm-12">
+                    {{-- <div class="col-sm-12">
                         <div class="courses_tab_wrapper">
                             <div class="courses_details_nav_tabs">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -180,133 +180,115 @@ $complains = [];
                             <!-- Tab panes -->
                             <div class="tab_contents tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active show" id="information">
-                                    @if ($user->role_id == 2)
-                                    @if (count($complains) != 0)
-                                    <table class="table table-striped">
-                                       
-                                        <tbody>
-                                            @php
-                                            $i = 1;
-                                            @endphp
-                                            @foreach ($complains as $complain)
-                                             <div class="col-sm-12">
-                        <div class="teacher-info">
-                            @if ($user->role_id == 2)
-                           <h3>You Have Some Issues With </h3>
-                                @if($complain->problem1 == 1)
-                                Late , 
-                                @endif
-                                @if($complain->problem2 == 1)
-                                Behaviour , 
-                                @endif
-                                @if($complain->problem3 == 1)
-                                Teaching Method , 
-                                @endif
-                                @if($complain->problem3 == 1)
-                                Marking , 
-                                @endif
-                                @if($complain->problem3 == 1)
-                                Lack Of Effective Communiation 
-                                @endif
-                               <br>
-                                {{-- {{$complain->comment}} --}}
-                            @else
-                            <ul class="list-unstyled">
-                                <li>
-                                    <h3>Name :</h3>
-                                    <span>{{ $user->name }}</span>
-                                </li>
-                                <li>
-                                    <h3>ID :</h3>
-                                    <span>{{ $user->id_no != null ? $user->id_no : 'N/A' }}</span>
-                                </li>
-                                <li>
-                                    <h3>Email :</h3>
-                                    <span>{{ $user->email != null ? $user->email : 'N/A' }}</span>
-                                </li>
-                                @if ($user->department != null)
-                                <li>
-                                    <h3>Department :</h3>
-                                    <span>{{ $user->department->title }}</span>
-                                </li>
-                                @endif
-                                <li>
-                                    <h3>Mobile :</h3>
-                                    <span>{{ $user->mobile != null ? $user->mobile : 'N/A' }}</span>
-                                </li>
-                            </ul>
-                            @endif
-                        </div>
-                    </div>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                    @else
-                                    <span>No Complains found</span>
-                                    @endif
-
-                                    @else
-                                    @if (count($complains) != 0)
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">SL</th>
-                                                <th scope="col">Teacher Name</th>
-                                                      <th scope="col">Late</th>
-                                                <th scope="col">Behaviour</th>
-                                                <th scope="col">Teaching Method</th>
-                                                <th scope="col">Marking</th>
-                                                                                                <th scope="col">Lack Of Effective Communiation</th>
-
-                                                {{-- <th scope="col">Comment</th> --}}
-                                                <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @php
-                                            $i = 1;
-                                            @endphp
-                                            @foreach ($complains as $complain)
-                                            <tr>
-                                                <td class="text-center">{{ $i++ }}</td>
-                                                @php
-                                                $teacher =
-                                                App\Models\User::toBase()->where('id',$complain->teacher_id)->pluck('name')->first();
-                                                @endphp
-                                                <td class="text-center">{{ $teacher }}</td>
-                                                <td class="text-center">{{ $complain->problem1 }}</td>
-                                                <td class="text-center">{{ $complain->problem2 }}</td>
-                                                <td class="text-center">{{ $complain->problem3 }}</td>
-                                                <td class="text-center">{{ $complain->problem4 }}</td>
-                                                <td class="text-center">{{ $complain->problem5 }}</td>
-                                                {{-- <td>{{ $complain->comment != null ? $complain->comment : 'N/A' }}</td> --}}
-                                                @if($complain->status == '1')
-                                                <td>
-                                                    <span class="badge badge-info">Pending</span>
-                                                </td>
-                                                @elseif ($complain->status == '2')
-                                                <td>
-                                                    <span class="badge badge-success">Accepted</span>
-                                                </td>
-                                                @else
-                                                <td>
-                                                    <span class="badge badge-danger">Declined</span>
-                                                </td>
-                                                @endif
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                    @else
-                                    <span>No Complains found</span>
-                                    @endif
-                                    @endif
+                            
                                 </div>
                             </div>
+                            
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div><!-- Ends: .teacher-detail-right -->
         </div>
     </div>
 </section><!-- Ends: .teacher-details-wrapper -->
+
+<section>
+
+    <div class="container">
+        <div class="mb-3">
+            <h3>Complains ({{ count($complains) }})</h3>
+        </div>
+        @if ($user->role_id == 2)
+        @if (count($complains) != 0)
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Late</th>
+                    <th scope="col">Behaviour</th>
+                    <th scope="col">Teaching Method</th>
+                    <th scope="col">Marking</th>
+                    <th scope="col">Lack Of Effective Communiation</th>
+                    <th scope="col" class="col-md-2">Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                $i = 1;
+                @endphp
+                @foreach ($complains as $complain)
+                <tr>
+                    <td class="text-center">{{ $i++ }}</td>
+                    <td class="text-center">{{ $complain->problem1 == 1 ? 'You have late issue' : 'No issue' }}</td>
+                    <td class="text-center">{{ $complain->problem2 == 1 ? 'You have behaviour issue' : 'No issue' }}</td>
+                    <td class="text-center">{{ $complain->problem3 == 1 ? 'You have issue in your tecahing method' : 'No issue' }}</td>
+                    <td class="text-center">{{ $complain->problem4 == 1 ? 'You have issue in your marking method' : 'No issue' }}</td>
+                    <td class="text-center">{{ $complain->problem5 == 1 ? 'You have issue in your communicating method' : 'No issue' }}</td>
+                    <td>{{ $complain->comment != null ? $complain->comment : 'N/A' }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <span>No Complains found</span>
+        @endif
+
+        @else
+        @if (count($complains) != 0)
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">SL</th>
+                    <th scope="col">Teacher Name</th>
+                    <th scope="col">Late</th>
+                    <th scope="col">Behaviour</th>
+                    <th scope="col">Teaching Method</th>
+                    <th scope="col">Marking</th>
+                    <th scope="col">Lack Of Effective Communiation</th>
+
+                    <th scope="col" class="col-md-2">Comment</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                $i = 1;
+                @endphp
+                @foreach ($complains as $complain)
+                <tr>
+                    <td class="text-center">{{ $i++ }}</td>
+                    @php
+                    $teacher =
+                    App\Models\User::toBase()->where('id',$complain->teacher_id)->pluck('name')->first();
+                    @endphp
+                    <td class="text-center">{{ $teacher }}</td>
+                    <td class="text-center">{{ $complain->problem1 }}</td>
+                    <td class="text-center">{{ $complain->problem2 }}</td>
+                    <td class="text-center">{{ $complain->problem3 }}</td>
+                    <td class="text-center">{{ $complain->problem4 }}</td>
+                    <td class="text-center">{{ $complain->problem5 }}</td>
+                    <td>{{ $complain->comment != null ? $complain->comment : 'N/A' }}
+                    </td>
+                    @if($complain->status == '1')
+                    <td>
+                        <span class="badge badge-info">Pending</span>
+                    </td>
+                    @elseif ($complain->status == '2')
+                    <td>
+                        <span class="badge badge-success">Accepted</span>
+                    </td>
+                    @else
+                    <td>
+                        <span class="badge badge-danger">Declined</span>
+                    </td>
+                    @endif
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <span>No Complains found</span>
+        @endif
+        @endif
+    </div>
+</section>
