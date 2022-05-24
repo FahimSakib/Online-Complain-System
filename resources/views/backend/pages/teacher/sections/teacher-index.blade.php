@@ -47,7 +47,7 @@
                                         <th>Name</th>
                                         <th>ID</th>
                                         <th>Designation</th>
-                                        {{-- <th>Department</th> --}}
+                                        <th>Department</th>
                                         <th>Mobile</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -66,7 +66,7 @@
                                         <td>{{$teacher->name}}</td>
                                         <td>{{$teacher->id_no}}</td>
                                         <td>{{$teacher->designation}}</td>
-                                        {{-- <td>{{$teacher->department->title}}</td> --}}
+                                        <td>{{$teacher->department->title}}</td>
                                         <td>{{$teacher->mobile}}</td>
                                         <td>
                                             @if ($teacher->status == 1)

@@ -52,8 +52,8 @@ toast($message,'success');
                                     @php
                                     $teacher =
                                     App\Models\User::where('id',$complain->teacher_id)->pluck('name')->first();
-                                    $student =
-                                    App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
+                                    // $student =
+                                    // App\Models\User::where('id',$complain->student_id)->pluck('name')->first();
                                     $problem1_avg =
                                     App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem1');
                                     $problem2_avg =
@@ -73,10 +73,10 @@ toast($message,'success');
                                         <th>Department</th>
                                         <td>{{ $complain->department->title }}</td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <th>student Name</th>
                                         <td>{{ $student }}</td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <th>Problem 01</th>
                                         <td @if($problem1_avg <=0.5) class="text-danger ">False
