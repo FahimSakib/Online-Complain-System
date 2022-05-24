@@ -203,13 +203,13 @@ $complains = [];
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">SL</th>
-                    <th scope="col">Late</th>
-                    <th scope="col">Behaviour</th>
-                    <th scope="col">Teaching Method</th>
-                    <th scope="col">Marking</th>
-                    <th scope="col">Lack Of Effective Communiation</th>
-                    <th scope="col" class="col-md-2">Comment</th>
+                    <th scope="col" class="text-center">SL</th>
+                    <th scope="col" class="text-center">Late</th>
+                    <th scope="col" class="text-center">Behaviour</th>
+                    <th scope="col" class="text-center">Teaching Method</th>
+                    <th scope="col" class="text-center">Marking</th>
+                    <th scope="col" class="text-center">Lack Of Effective Communiation</th>
+                    <th scope="col" class="col-md-2 text-center">Comment</th>
                 </tr>
             </thead>
             <tbody>
