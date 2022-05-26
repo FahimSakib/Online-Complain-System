@@ -18,14 +18,14 @@
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i
-                        class="nav-icon ti ti-layers"></i><span class="nav-title">Department</span></a>
+                        class="nav-icon ti ti-layout-grid3"></i><span class="nav-title">Department</span></a>
                 <ul aria-expanded="false">
                     <li> <a href="{{ route('admin.department.index') }}" class="text-success">Index</a> </li>
                     <li> <a href="{{ route('admin.department.create') }}" class="text-info">Create</a> </li>
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i
-                        class="nav-icon ti ti-layers"></i><span class="nav-title">Teachers</span></a>
+                        class="nav-icon ti ti-user"></i><span class="nav-title">Teachers</span></a>
                 <ul aria-expanded="false">
                     <li> <a href="{{ route('admin.teacher.index') }}" class="text-success">Index</a> </li>
                     <li> <a href="{{ route('admin.teacher.create') }}" class="text-info">Create</a> </li>
