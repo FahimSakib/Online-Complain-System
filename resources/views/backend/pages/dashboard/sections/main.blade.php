@@ -62,7 +62,10 @@
                     <div class="row no-gutters">
                        <center>
                        <h2 class="text-center">How Our System Works</h2>
-                       <h4>A complaint management system is a software program that allows companies to address customers' inquiries, deliver consistent support and manage complaints in a timely manner.</h4>
+                       <h4 class="mx-4" style="text-align: justify;" >A complaint management system is a software program that allows companies to address customers' inquiries, deliver consistent support and manage complaints in a timely manner.Here Admin will review the complains and operate these complains regarding submitted complains.Admin can manage profiles also. Admin is Also Responsible for Creating Teacher Accounts,Departmetns,Adding new problems.
+                       </h4>
+                                      <img src="asset/backend/assets/img/dashboard.png" class="img-fluid logo-desktop" alt="logo" style="width:100%;" />
+
                       </center>
                       
                     </div>
