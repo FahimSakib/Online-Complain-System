@@ -70,10 +70,10 @@ toast($message,'success');
                                         App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem5');
                                          $count =  App\Models\Complain::where('teacher_id',$complain->teacher_id)->count();
                                         @endphp
-                                        @if ($count>=25)
+                                        @if ($count>25 && $complain->id>25)
                                             
                                        
-                                        <td>{{ $teacher }}</td>
+                                        <td>{{  $teacher}}</td>
                                         <td>{{ $complain->department->title }}</td>
                                         {{-- <td>{{ $student }}</td> --}}
                                         {{-- <td
