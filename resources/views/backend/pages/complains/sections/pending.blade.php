@@ -34,7 +34,7 @@ toast($message,'success');
                             <table id="datatable" class="display compact table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>SL</th>
+                                        {{-- <th>SL</th> --}}
                                         <th>Teacher</th>
                                         <th>Department</th>
                                         {{-- <th>Student</th> --}}
@@ -52,7 +52,7 @@ toast($message,'success');
                                     @endphp
                                     @foreach ($complains as $complain)
                                     <tr>
-                                        <td>{{ $i++ }}</td>
+                                        {{-- <td>{{ $i++ }}</td> --}}
                                         @php
                                         $teacher =
                                         App\Models\User::where('id',$complain->teacher_id)->pluck('name')->first();
@@ -68,7 +68,11 @@ toast($message,'success');
                                         App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem4');
                                         $problem5_avg =
                                         App\Models\Complain::toBase()->where('teacher_id',$complain->teacher_id)->avg('problem5');
+                                         $count =  App\Models\Complain::where('teacher_id',$complain->teacher_id)->count();
                                         @endphp
+                                        @if ($count>=25)
+                                            
+                                       
                                         <td>{{ $teacher }}</td>
                                         <td>{{ $complain->department->title }}</td>
                                         {{-- <td>{{ $student }}</td> --}}
@@ -93,7 +97,6 @@ toast($message,'success');
                                             class="{{ $problem5_avg <= 2.5 ? 'text-danger' : 'text-success' }} text-center">
                                             {{ $complain->problem5 }} <br> average:
                                             {{ number_format((float)$problem5_avg, 2, '.', '') }}
-
                                         </td> --}}
                                         <td @if($problem1_avg <=0.5) class="text-danger text-center">False
                                             @else
@@ -168,6 +171,7 @@ toast($message,'success');
                                                 </div>
                                             </div>
                                         </td>
+                                         @endif
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -210,6 +214,5 @@ toast($message,'success');
                 }
             });
     });
-
 </script>
 @endpush
